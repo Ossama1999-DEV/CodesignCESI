@@ -17,7 +17,8 @@ architecture behav of TB_compteur is
     signal dout_tb : std_logic_vector(3 downto 0);
 
     -- instanciation du compteur
-    component compteur
+    -- component compteur
+    component compteur09
         port (
             clk  : in  std_logic;
             rst  : in  std_logic;
@@ -27,7 +28,8 @@ architecture behav of TB_compteur is
 
 begin
 
-    uut: compteur
+    -- uut: compteur
+    uut: compteur09
         port map (
             clk  => clk_tb,
             rst  => rst_tb,

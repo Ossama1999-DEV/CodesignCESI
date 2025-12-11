@@ -10,34 +10,34 @@
 # Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd}
+# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:49:28 on Dec 11,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd 
+# Start time: 11:20:37 on Dec 11,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity compteur
-# -- Compiling architecture rtl of compteur
-# End time: 10:49:28 on Dec 11,2025, Elapsed time: 0:00:00
+# -- Compiling entity compteur09
+# -- Compiling architecture rtl of compteur09
+# End time: 11:20:37 on Dec 11,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:49:29 on Dec 11,2025
+# Start time: 11:20:38 on Dec 11,2025
 # vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity TB_TimerLed
 # -- Compiling architecture TimerLed_arch of TB_TimerLed
-# End time: 10:49:29 on Dec 11,2025, Elapsed time: 0:00:00
+# End time: 11:20:38 on Dec 11,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  TB_TimerLed
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" TB_TimerLed 
-# Start time: 10:49:29 on Dec 11,2025
+# Start time: 11:20:38 on Dec 11,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -51,113 +51,31 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 20 ns
-# Load canceled
 vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:49:51 on Dec 11,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
-# -- Loading package STANDARD
-# ** Error: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl(1): near "/": syntax error
-# End time: 10:49:51 on Dec 11,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:49:53 on Dec 11,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
-# -- Loading package STANDARD
-# ** Error: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl(1): near "/": syntax error
-# End time: 10:49:53 on Dec 11,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-clear
-# invalid command name "clear"
-
-clc
-# invalid command name "clc"
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:50:40 on Dec 11,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
-# -- Loading package STANDARD
-# ** Error: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl(1): near "/": syntax error
-# End time: 10:50:40 on Dec 11,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:51:14 on Dec 11,2025
+# Start time: 11:20:46 on Dec 11,2025
 # vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity TB_compteur
 # -- Compiling architecture behav of TB_compteur
-# End time: 10:51:14 on Dec 11,2025, Elapsed time: 0:00:00
+# End time: 11:20:46 on Dec 11,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=\"+acc\" work.tb_compteur
-# End time: 10:51:28 on Dec 11,2025, Elapsed time: 0:01:59
-# Errors: 6, Warnings: 1
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" work.tb_compteur 
-# Start time: 10:51:28 on Dec 11,2025
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.tb_compteur(behav)
-# ** Warning: (vsim-3473) Component instance "uut : compteur_0_15" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /tb_compteur File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-add wave -position insertpoint  \
-sim:/tb_compteur/rst_tb \
-sim:/tb_compteur/dout_tb \
-sim:/tb_compteur/clk_tb
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:59:28 on Dec 11,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity TB_compteur
-# -- Compiling architecture behav of TB_compteur
-# End time: 10:59:28 on Dec 11,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:59:29 on Dec 11,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity TB_compteur
-# -- Compiling architecture behav of TB_compteur
-# End time: 10:59:29 on Dec 11,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# internal error on MenuItemCan
-# m is .mBar.file label is End Simulation state is disabled
-#  Trace back: 
-#    <5:eval:1: ::Vsimmenu::MenuItemCan .mBar.file {End Simulation} disabled
-#    >4:proc:1603: ::.main_pane.wave.interior.cs.body.pw.wf.tree Action .main_pane.wave SetMenuState {{can_open {::Vsimmenu::MenuItemCan .mBar.file Open...}} {can_close_file {::Vsimmenu::MenuItemCan .mBar.file {End Simulation}}} {can_save {::Vsimmenu::MenuItemCan .mBar.file {Save Dataset...}}} {can_saveas {::Vsimmenu::MenuItemCan .mBar.file {Save List...}}} {can_report {::Vsimmenu::MenuItemCan .mBar.file Report...}} {can_use_source_file {::Vsimmenu::MenuItemCan .mBar.file {Use Source...}}} {can_environment {::Vsimmenu::MenuItemCan .mBar.file Environment}} {can_page_setup {::Vsimmenu::MenuItemCan .mBar.file {Page Setup...}}} {can_print {::Vsimmenu::MenuItemCan .mBar.file Print...}} {can_print_postscript {::Vsimmenu::MenuItemCan .mBar.file {Print Postscript...}}} {can_close_window {::Vsimmenu::MenuItemCan .mBar.file {Close Window}}}}
-#    <3:eval:1: ::namespace inscope ::Wave {.main_pane.wave.interior.cs.body.pw.wf.tree Action} .main_pane.wave SetMenuState {{can_open {::Vsimmenu::MenuItemCan .mBar.file Open...}} {can_close_file {::Vsimmenu::MenuItemCan .mBar.file {End Simulation}}} {can_save {::Vsimmenu::MenuItemCan .mBar.file {Save Dataset...}}} {can_saveas {::Vsimmenu::MenuItemCan .mBar.file {Save List...}}} {can_report {::Vsimmenu::MenuItemCan .mBar.file Report...}} {can_use_source_file {::Vsimmenu::MenuItemCan .mBar.file {Use Source...}}} {can_environment {::Vsimmenu::MenuItemCan .mBar.file Environment}} {can_page_setup {::Vsimmenu::MenuItemCan .mBar.file {Page Setup...}}} {can_print {::Vsimmenu::MenuItemCan .mBar.file Print...}} {can_print_postscript {::Vsimmenu::MenuItemCan .mBar.file {Print Postscript...}}} {can_close_window {::Vsimmenu::MenuItemCan .mBar.file {Close Window}}}}
-#    >2:eval:1: ::.vcop Action SetMenuState {{can_open {::Vsimmenu::MenuItemCan .mBar.file Open...}} {can_close_file {::Vsimmenu::MenuItemCan .mBar.file {End Simulation}}} {can_save {::Vsimmenu::MenuItemCan .mBar.file {Save Dataset...}}} {can_saveas {::Vsimmenu::MenuItemCan .mBar.file {Save List...}}} {can_report {::Vsimmenu::MenuItemCan .mBar.file Report...}} {can_use_source_file {::Vsimmenu::MenuItemCan .mBar.file {Use Source...}}} {can_environment {::Vsimmenu::MenuItemCan .mBar.file Environment}} {can_page_setup {::Vsimmenu::MenuItemCan .mBar.file {Page Setup...}}} {can_print {::Vsimmenu::MenuItemCan .mBar.file Print...}} {can_print_postscript {::Vsimmenu::MenuItemCan .mBar.file {Print Postscript...}}} {can_close_window {::Vsimmenu::MenuItemCan .mBar.file {Close Window}}}}
-#    <1:proc:107: ::Vsimmenu::DefaultMenuPostCmd .mBar.file {FileMenuPostCmd .mBar.file} SetMenuState
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=\"+acc\" work.tb_compteur
-# End time: 10:59:36 on Dec 11,2025, Elapsed time: 0:08:08
+# End time: 11:20:55 on Dec 11,2025, Elapsed time: 0:00:17
 # Errors: 0, Warnings: 1
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" work.tb_compteur 
-# Start time: 10:59:36 on Dec 11,2025
+# Start time: 11:20:55 on Dec 11,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading work.tb_compteur(behav)
 # Loading ieee.numeric_std(body)
-# Loading work.compteur(rtl)
+# Loading work.compteur09(rtl)
+add wave -position insertpoint  \
+sim:/tb_compteur/rst_tb \
+sim:/tb_compteur/dout_tb \
+sim:/tb_compteur/clk_tb \
+sim:/tb_compteur/clk_period
+run
