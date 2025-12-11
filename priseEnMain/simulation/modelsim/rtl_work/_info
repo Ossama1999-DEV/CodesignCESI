@@ -8,85 +8,122 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim
-Etb_timerled
-Z1 w1765441628
-Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Ecompteur
+Z1 w1765445975
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z4 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
-Z5 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
+Z5 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd
+Z6 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd
+l0
+L5
+V3`IU^N_AK1h1jdVZn08ZM2
+!s100 f[4?G?AiX>ffQV8EF6RIm3
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1765446568
+!i10b 1
+Z9 !s108 1765446568.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd|
+Z11 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+DEx4 work 8 compteur 0 22 3`IU^N_AK1h1jdVZn08ZM2
+l15
+L13
+V_^HV32P^CPfecQMFDf?d;3
+!s100 eRC3gS]?6eo_;cSTE[lK50
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etb_compteur
+Z14 w1765447160
+R3
+R4
+R0
+Z15 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
+Z16 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl
+l0
+L8
+V9j>5nD^zcOB:8E1`h_g]Q2
+!s100 1bHW1H5I:SQZ5FoBkD:RU3
+R7
+32
+Z17 !s110 1765447169
+!i10b 1
+Z18 !s108 1765447169.000000
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl|
+Z20 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl|
+!i113 1
+Z21 o-work work
+R13
+Abehav
+R3
+R4
+Z22 DEx4 work 11 tb_compteur 0 22 9j>5nD^zcOB:8E1`h_g]Q2
+l28
+L11
+Z23 VX67iKALn4IjOB^SiP<U1;1
+Z24 !s100 jL`Nd7BiVb5RW=gU9=93n2
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R21
+R13
+Etb_timerled
+Z25 w1765441628
+R3
+R4
+R0
+Z26 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
+Z27 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
 l0
 L7
 Vmab6PCf5IXTLA0HICTOW?0
 !s100 FicO7Y02:<>7kFRE0EjU71
-Z6 OV;C;10.5b;63
+R7
 31
-Z7 !s110 1765443699
+Z28 !s110 1765446569
 !i10b 1
-Z8 !s108 1765443699.000000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
-Z10 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
+Z29 !s108 1765446569.000000
+Z30 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
+Z31 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
 !i113 1
-Z11 o-93 -work work
-Z12 tExplicit 1 CvgOpt 0
+R12
+R13
 Atimerled_arch
-R2
 R3
+R4
 DEx4 work 11 tb_timerled 0 22 mab6PCf5IXTLA0HICTOW?0
 l27
 L10
 VVl24[4Ac?aF4[Gi?CT51m1
 !s100 D@YJEYZLizMZH_=bjdc8j2
-R6
-31
 R7
-!i10b 1
-R8
-R9
-R10
-!i113 1
-R11
-R12
-Etimerled
-Z13 w1765439278
-Z14 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z15 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
-R2
-R3
-R0
-Z16 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/TimerLed.vhd
-Z17 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/TimerLed.vhd
-l0
-L9
-VX4?2e2^ld<5G1VGQebelB3
-!s100 aK^`=2n@K:o4HeHDb7f:X0
-R6
 31
-R7
+R28
 !i10b 1
-R8
-Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/TimerLed.vhd|
-Z19 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/TimerLed.vhd|
+R29
+R30
+R31
 !i113 1
-R11
 R12
-Aarch_timerled
-R14
-R15
-R2
-R3
-DEx4 work 8 timerled 0 22 X4?2e2^ld<5G1VGQebelB3
-l17
-L16
-V>5fXB57YfQ>UMoFLfO7m?0
-!s100 Y=emfJN<XZ[Zc<2=HY:kJ0
-R6
-31
-R7
-!i10b 1
-R8
-R18
-R19
-!i113 1
-R11
-R12
+R13
