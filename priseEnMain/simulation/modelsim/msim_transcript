@@ -72,3 +72,5 @@ sim:/tb_timerled/clk_period \
 sim:/tb_timerled/clk
 run
 write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/wave.do
+# End time: 10:30:33 on Dec 11,2025, Elapsed time: 0:28:32
+# Errors: 0, Warnings: 0
