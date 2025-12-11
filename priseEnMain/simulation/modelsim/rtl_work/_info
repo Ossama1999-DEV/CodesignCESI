@@ -8,25 +8,25 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim
-Ecompteur09
-Z1 w1765448377
+Ecompteur09_1s
+Z1 w1765450020
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd
-Z6 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd
+Z5 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09_1s.vhd
+Z6 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09_1s.vhd
 l0
-L7
-Vo@ml;Zjo9Ri]Q98[QCBbQ3
-!s100 Bg:^^FIKdSfcjCgg5O[7N1
+L8
+VRZ8_l<6P@@SLF00Z@<Y]60
+!s100 9TJ3aNo3m8_0gO@7m4JFc0
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1765448437
+Z8 !s110 1765450234
 !i10b 1
-Z9 !s108 1765448437.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd|
-Z11 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09.vhd|
+Z9 !s108 1765450234.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09_1s.vhd|
+Z11 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/compteur09_1s.vhd|
 !i113 1
 Z12 o-93 -work work
 Z13 tExplicit 1 CvgOpt 0
@@ -34,11 +34,11 @@ Artl
 R2
 R3
 R4
-DEx4 work 10 compteur09 0 22 o@ml;Zjo9Ri]Q98[QCBbQ3
-l17
-L15
-V[lM0S_[IjDe1R27RcME>10
-!s100 :X>T>@jRUCBEB>3@BDFcR0
+DEx4 work 13 compteur09_1s 0 22 RZ8_l<6P@@SLF00Z@<Y]60
+l29
+L16
+VF=kS2ZX8NhLoeeAo5[]_O3
+!s100 cQ[=LJCnRbzWNz<<`SR>U1
 R7
 31
 R8
@@ -50,7 +50,7 @@ R11
 R12
 R13
 Etb_compteur
-Z14 w1765448159
+Z14 w1765450217
 R3
 R4
 R0
@@ -62,9 +62,9 @@ V9j>5nD^zcOB:8E1`h_g]Q2
 !s100 1bHW1H5I:SQZ5FoBkD:RU3
 R7
 32
-Z17 !s110 1765448446
+Z17 !s110 1765450253
 !i10b 1
-Z18 !s108 1765448446.000000
+Z18 !s108 1765450253.000000
 Z19 !s90 -reportprogress|300|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl|
 Z20 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_compteur.vhdl|
 !i113 1
@@ -73,11 +73,11 @@ R13
 Abehav
 R3
 R4
-DEx4 work 11 tb_compteur 0 22 9j>5nD^zcOB:8E1`h_g]Q2
-l29
+Z22 DEx4 work 11 tb_compteur 0 22 9j>5nD^zcOB:8E1`h_g]Q2
+l30
 L11
-VMZ<`I7A]6e[G;JIkW@kbl1
-!s100 W5eKD5b@hb8VM6^^V9QeD2
+Z23 V2bV2>cbl51^c1lf_0;:9<3
+Z24 !s100 S^NhfAJR]PK@9j6S^f;DR0
 R7
 32
 R17
@@ -89,23 +89,23 @@ R20
 R21
 R13
 Etb_timerled
-Z22 w1765441628
+Z25 w1765441628
 R3
 R4
 R0
-Z23 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
-Z24 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
+Z26 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
+Z27 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl
 l0
 L7
 Vmab6PCf5IXTLA0HICTOW?0
 !s100 FicO7Y02:<>7kFRE0EjU71
 R7
 31
-Z25 !s110 1765448438
+R8
 !i10b 1
-Z26 !s108 1765448438.000000
-Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
-Z28 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
+R9
+Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
+Z29 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/priseEnMain/simulation/modelsim/TB_TimerLed.vhdl|
 !i113 1
 R12
 R13
@@ -119,11 +119,11 @@ VVl24[4Ac?aF4[Gi?CT51m1
 !s100 D@YJEYZLizMZH_=bjdc8j2
 R7
 31
-R25
+R8
 !i10b 1
-R26
-R27
+R9
 R28
+R29
 !i113 1
 R12
 R13

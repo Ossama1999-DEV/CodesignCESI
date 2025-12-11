@@ -19,3 +19,4 @@ if count = "1001" then   -- 9
     count <= (others => '0');
 
 ***Exercice 3 :*** Réalisation d’un compteur synchrone 0 - 9 avec un temps de comptage de 1s.
+CE quil faut faire est d'ajouter un diviseur d'horloge 50 MHz → 1 Hz

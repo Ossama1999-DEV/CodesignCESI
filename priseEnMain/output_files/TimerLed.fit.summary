@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu Dec 11 11:33:24 2025
+Fitter Status : Successful - Thu Dec 11 11:49:50 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : TimerLed
-Top-level Entity Name : compteur09
+Top-level Entity Name : compteur09_1s
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 7 / 22,320 ( < 1 % )
-    Total combinational functions : 7 / 22,320 ( < 1 % )
-    Dedicated logic registers : 4 / 22,320 ( < 1 % )
-Total registers : 4
+Total logic elements : 55 / 22,320 ( < 1 % )
+    Total combinational functions : 54 / 22,320 ( < 1 % )
+    Dedicated logic registers : 31 / 22,320 ( < 1 % )
+Total registers : 31
 Total pins : 6 / 154 ( 4 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )

@@ -18,7 +18,8 @@ architecture behav of TB_compteur is
 
     -- instanciation du compteur
     -- component compteur
-    component compteur09
+    -- component compteur09
+    component compteur09_1s
         port (
             clk  : in  std_logic;
             rst  : in  std_logic;
@@ -29,7 +30,8 @@ architecture behav of TB_compteur is
 begin
 
     -- uut: compteur
-    uut: compteur09
+    -- uut: compteur09
+    uut: compteur09_1s
         port map (
             clk  => clk_tb,
             rst  => rst_tb,
