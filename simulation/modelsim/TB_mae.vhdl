@@ -7,32 +7,30 @@ end entity;
 architecture behav of TB_mae is
     constant clk_period : time := 20 ns; -- 50 MHz
 
-    signal clk_tb  : std_logic := '0';
+    signal ck_tb   : std_logic := '0';
     signal rst_tb  : std_logic := '1';
-    signal in1_tb  : std_logic := '0';  -- in1 du schéma
-    signal in2_tb  : std_logic := '0';  -- in2 du schéma
+    signal T1_2_tb : std_logic := '0';
+    signal T2_1_tb : std_logic := '0';
     signal out1_tb : std_logic;
 
     component mae
         port (
-            clk  : in  std_logic;
+            ck   : in  std_logic;
             rst  : in  std_logic;
-            in0  : in  std_logic; -- on l'utilise comme in2 (schéma)
-            in1  : in  std_logic; -- in1 (schéma)
+            T1_2 : in  std_logic;
+            T2_1 : in  std_logic;
             out1 : out std_logic
         );
     end component;
 
 begin
-    -- Mapping conforme au schéma :
-    -- in1_tb -> in1
-    -- in2_tb -> in0 (car pas de port "in2" dans l'entity)
+
     uut : mae
         port map (
-            clk  => clk_tb,
+            ck   => ck_tb,
             rst  => rst_tb,
-            in0  => in2_tb,   -- in2 du schéma
-            in1  => in1_tb,   -- in1 du schéma
+            T1_2 => T1_2_tb,
+            T2_1 => T2_1_tb,
             out1 => out1_tb
         );
 
@@ -40,122 +38,61 @@ begin
     clk_process : process
     begin
         while true loop
-            clk_tb <= '0'; wait for clk_period/2;
-            clk_tb <= '1'; wait for clk_period/2;
+            ck_tb <= '0'; wait for clk_period/2;
+            ck_tb <= '1'; wait for clk_period/2;
         end loop;
     end process;
 
-    -- Stimuli + checks (conformes au schéma)
+    -- Stimuli + checks
     stim_proc : process
+        procedure wait_rise(n : natural) is
+        begin
+            for i in 1 to n loop
+                wait until (ck_tb'event and ck_tb = '1');
+            end loop;
+        end procedure;
     begin
         ----------------------------------------------------------------
-        -- ========== CYCLE 1 ==========
+        -- CYCLE 1 : reset -> etat1 -> etat2 -> etat1
         ----------------------------------------------------------------
-        -- RESET
-        rst_tb <= '1';
-        in1_tb <= '0';
-        in2_tb <= '0';
-        wait for clk_period;
-        rst_tb <= '0';
+        rst_tb  <= '1';
+        T1_2_tb <= '0';
+        T2_1_tb <= '0';
+        wait_rise(1);
+        rst_tb  <= '0';
+        wait_rise(1);
 
-        wait for clk_period; -- etat1 stable
-        assert out1_tb = '0' report "CYCLE 1: out1 devrait etre 0 en etat1" severity error;
+        assert out1_tb = '0' report "CYCLE1: apres reset, out1 doit etre 0 (etat1)" severity error;
 
-        -- etat1 -> etat2 (in1 = 1)
-        wait for clk_period/2;
-        in1_tb <= '1';
-        wait for clk_period;
-        in1_tb <= '0';
+        -- maintien en etat1 si on active T2_1 (pas de transition prévue)
+        T2_1_tb <= '1'; wait_rise(1); T2_1_tb <= '0'; wait_rise(1);
+        assert out1_tb = '0' report "CYCLE1: en etat1, T2_1 ne doit pas changer l'etat" severity error;
 
-        wait for clk_period;
-        assert out1_tb = '1' report "CYCLE 1: out1 devrait etre 1 en etat2" severity error;
+        -- etat1 -> etat2 via T1_2
+        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
+        assert out1_tb = '1' report "CYCLE1: attendu etat2 (out1=1) apres T1_2" severity error;
 
-        -- etat2 -> etat1 (in2 = 1)
-        wait for clk_period/2;
-        in2_tb <= '1';
-        wait for clk_period;
-        in2_tb <= '0';
+        -- maintien en etat2 si on active T1_2 (pas de transition prévue)
+        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
+        assert out1_tb = '1' report "CYCLE1: en etat2, T1_2 ne doit pas changer l'etat" severity error;
 
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 1: retour etat1 attendu" severity error;
+        -- etat2 -> etat1 via T2_1
+        T2_1_tb <= '1'; wait_rise(1); T2_1_tb <= '0'; wait_rise(1);
+        assert out1_tb = '0' report "CYCLE1: attendu retour etat1 (out1=0) apres T2_1" severity error;
 
         ----------------------------------------------------------------
-        -- ========== CYCLE 2 ==========
+        -- CYCLE 2 : refaire + reset en plein etat2
         ----------------------------------------------------------------
-        -- RESET à nouveau
-        rst_tb <= '1';
-        wait for clk_period;
-        rst_tb <= '0';
+        -- etat1 -> etat2
+        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
+        assert out1_tb = '1' report "CYCLE2: attendu etat2 (out1=1)" severity error;
 
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 2: out1 devrait etre 0 en etat1" severity error;
+        -- reset pendant etat2 => retour etat1
+        rst_tb <= '1'; wait_rise(1);
+        rst_tb <= '0'; wait_rise(1);
+        assert out1_tb = '0' report "CYCLE2: reset en etat2 doit ramener etat1 (out1=0)" severity error;
 
-        -- etat1 -> etat2 (in1 = 1)
-        wait for clk_period/2;
-        in1_tb <= '1';
-        wait for clk_period;
-        in1_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '1' report "CYCLE 2: out1 devrait etre 1 en etat2" severity error;
-
-        -- etat2 -> etat1 (in2 = 1)
-        wait for clk_period/2;
-        in2_tb <= '1';
-        wait for clk_period;
-        in2_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 2: retour etat1 attendu" severity error;
-
-        ----------------------------------------------------------------
-        -- ========== CYCLE 3 ==========
-        ----------------------------------------------------------------
-       -- RESET à nouveau
-        rst_tb <= '1';
-        wait for clk_period;
-        rst_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 3: out1 devrait etre 0 en etat1" severity error;
-
-        -- etat1 -> etat2 (in1 = 1)
-        wait for clk_period/2;
-        in1_tb <= '1';
-        wait for clk_period;
-        in1_tb <= '0';
-
-        rst_tb <= '1';
-        wait for clk_period;
-        rst_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 3: out1 devrait etre 0 en etat1" severity error;
-        
-        -- etat1 -> etat2 (in1 = 1)
-        wait for clk_period/2;
-        in1_tb <= '1';
-        wait for clk_period;
-        in1_tb <= '0';        
-
-        -- etat2 -> etat1 (in2 = 1)
-        wait for clk_period/2;
-        in2_tb <= '1';
-        wait for clk_period;
-        in2_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 3: retour etat1 attendu" severity error;
-        
-        rst_tb <= '1';
-        wait for clk_period;
-        rst_tb <= '0';
-
-        wait for clk_period;
-        assert out1_tb = '0' report "CYCLE 3: out1 devrait etre 0 en etat1" severity error;        
-
-        ----------------------------------------------------------------
-        report "Simulation OK : 3 cycles complets MAE + RESET" severity note;
+        report "Simulation OK : MAE conforme (transitions, maintien, reset)" severity note;
         wait;
     end process;
 

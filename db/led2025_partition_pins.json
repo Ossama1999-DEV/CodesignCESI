@@ -8,15 +8,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "in2",
+					"name" : "T1_2",
 					"strict" : false
 				},
 				{
-					"name" : "in1",
+					"name" : "T2_1",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "ck",
 					"strict" : false
 				},
 				{

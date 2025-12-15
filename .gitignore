@@ -1,2 +1,6 @@
 *.qsf
 /db/*.flock
+*.db_info
+/db/*
+/outputs_files/*
+/incremental_db/*

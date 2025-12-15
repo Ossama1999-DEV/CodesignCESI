@@ -83,7 +83,13 @@ Le compteur 0 à 9 est piloté par cette horloge divisée, ce qui permet une inc
 La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas temporel de 1 s, validant le bon fonctionnement du compteur.
 
 ---
+
+## exo 4
 ![alt text](priseEnMain/doc/image.png)
+![alt text](priseEnMain/doc/mae_simulation_prof.png)
+Le testbench vérifie le bon fonctionnement de la machine à états en testant le reset, les transitions entre etat1 et etat2, ainsi que le maintien dans un état lorsque l’entrée ne correspond pas à une transition valide.
+Il valide également la priorité du reset, y compris lorsqu’il est appliqué pendant un changement d’état, et confirme **que la sortie out1 dépend uniquement de l’état présent (machine de Moore).**
+
 ---
 
 ## 📁 Outils utilisés

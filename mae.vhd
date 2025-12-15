@@ -3,60 +3,72 @@ use ieee.std_logic_1164.all;
 
 entity mae is
     port (
-        clk  : in  std_logic;
+        ck   : in  std_logic;
         rst  : in  std_logic;   -- reset actif à '1'
-        in1  : in  std_logic;
-        in2  : in  std_logic;
-        out1 : out std_logic
+        T1_2 : in  std_logic;   -- transition etat1 -> etat2
+        T2_1 : in  std_logic;   -- transition etat2 -> etat1
+        out1 : out std_logic    -- sortie Moore
     );
 end entity;
 
 architecture rtl of mae is
 
-    type state_t is (etat1, etat2);
-    signal ep, es : state_t;  -- ep = état présent, es = état suivant
+    -- 1) Définition des états
+    type state is (etat1, etat2);
+
+    -- 2) Etat présent / Etat suivant
+    signal ep, es : state;
 
 begin
 
-    -- 1) Process d'évolution : calcule es en fonction de ep + entrées
-    p_next_state : process(ep, in1, in2)
+    --------------------------------------------------------------------
+    -- Process évolution (combinatoire) : calcule l'état suivant es
+    -- Liste de sensibilité : ep + toutes les entrées
+    --------------------------------------------------------------------
+    p_evolution : process(ep, T1_2, T2_1)
     begin
-        es <= ep;  -- par défaut : reste dans le même état
-
         case ep is
             when etat1 =>
-                if in2 = '1' then
+                if T1_2 = '1' then
                     es <= etat2;
-                end if;
-
-            when etat2 =>
-                if in1 = '1' then
+                else
                     es <= etat1;
                 end if;
 
+            when etat2 =>
+                if T2_1 = '1' then
+                    es <= etat1;
+                else
+                    es <= etat2;
+                end if;
+
             when others =>
-                es <= etat1;  -- repli sûr si état invalide
+                es <= etat1;  -- état initial de sécurité
         end case;
     end process;
 
-    -- 2) Process séquentiel : met à jour l’état présent (avec reset)
-    p_state_reg : process(clk, rst)
+    --------------------------------------------------------------------
+    -- Process séquentiel (mémorisation) : met à jour ep
+    --------------------------------------------------------------------
+    p_memorisation : process(ck, rst)
     begin
         if rst = '1' then
-            ep <= etat1;
-        elsif rising_edge(clk) then
+            ep <= etat1;                    -- état initial
+        elsif (ck'event and ck = '1') then  -- rising edge
             ep <= es;
         end if;
     end process;
 
-    -- 3) Process sorties : dépend uniquement de l’état présent (Moore)
-    p_outputs : process(ep)
+    --------------------------------------------------------------------
+    -- Process sorties (Moore) : sorties = f(ep)
+    --------------------------------------------------------------------
+    p_sorties : process(ep)
     begin
-        out1 <= '0';  -- valeur par défaut
         case ep is
+            when etat1 => out1 <= '0';
             when etat2 => out1 <= '1';
             when others => out1 <= '0';
         end case;
     end process;
 
-end architecture;
+end architecture rtl;
