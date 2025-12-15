@@ -10,89 +10,87 @@
 # Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/dbibi/test/compteur09_1s.vhd}
+# vcom -93 -work work {C:/Users/dbibi/test/mae.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:07:29 on Dec 15,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/dbibi/test/compteur09_1s.vhd 
+# Start time: 16:57:43 on Dec 15,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/dbibi/test/mae.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity compteur09_1s
-# -- Compiling architecture rtl of compteur09_1s
-# End time: 16:07:29 on Dec 15,2025, Elapsed time: 0:00:00
+# -- Compiling entity mae
+# -- Compiling architecture rtl of mae
+# End time: 16:57:43 on Dec 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl
+vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:07:51 on Dec 15,2025
-# vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl 
+# Start time: 16:58:04 on Dec 15,2025
+# vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity TB_compteur
-# -- Compiling architecture behav of TB_compteur
-# End time: 16:07:51 on Dec 15,2025, Elapsed time: 0:00:00
+# -- Compiling entity TB_mae
+# -- Compiling architecture behav of TB_mae
+# End time: 16:58:04 on Dec 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -gui -l msim_transcript work.tb_compteur
-# vsim -gui -l msim_transcript work.tb_compteur 
-# Start time: 16:08:03 on Dec 15,2025
+vsim -gui -l msim_transcript work.tb_mae
+# vsim -gui -l msim_transcript work.tb_mae 
+# Start time: 16:58:14 on Dec 15,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.tb_compteur(behav)
-# Loading ieee.numeric_std(body)
-# Loading work.compteur09_1s(rtl)
-add wave -position insertpoint sim:/tb_compteur/*
+# Loading work.tb_mae(behav)
+# Loading work.mae(rtl)
+add wave -position insertpoint sim:/tb_mae/*
 run
 run
-vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:16:49 on Dec 15,2025
-# vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl 
+# Start time: 17:04:32 on Dec 15,2025
+# vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity TB_compteur09
-# -- Compiling architecture behav of TB_compteur09
-# End time: 16:16:49 on Dec 15,2025, Elapsed time: 0:00:00
+# -- Compiling entity TB_mae
+# -- Compiling architecture behav of TB_mae
+# End time: 17:04:33 on Dec 15,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-vsim -gui -l msim_transcript work.tb_compteur09
-# End time: 16:17:04 on Dec 15,2025, Elapsed time: 0:09:01
+run
+run
+run
+run
+run
+run
+run
+vsim -gui -l msim_transcript work.tb_mae
+# End time: 17:04:52 on Dec 15,2025, Elapsed time: 0:06:38
 # Errors: 0, Warnings: 0
-# vsim -gui -l msim_transcript work.tb_compteur09 
-# Start time: 16:17:04 on Dec 15,2025
+# vsim -gui -l msim_transcript work.tb_mae 
+# Start time: 17:04:52 on Dec 15,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.tb_compteur09(behav)
-# ** Warning: (vsim-3473) Component instance "uut : compteur09" is not bound.
-#    Time: 0 ps  Iteration: 0  Instance: /tb_compteur09 File: C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl
-add wave -position insertpoint sim:/tb_compteur09/*
-run
-vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 16:18:43 on Dec 15,2025
-# vcom -reportprogress 300 -work work C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity TB_compteur09
-# -- Compiling architecture behav of TB_compteur09
-# End time: 16:18:43 on Dec 15,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim -gui -l msim_transcript work.tb_compteur09
-# End time: 16:18:56 on Dec 15,2025, Elapsed time: 0:01:52
-# Errors: 0, Warnings: 1
-# vsim -gui -l msim_transcript work.tb_compteur09 
-# Start time: 16:18:56 on Dec 15,2025
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.tb_compteur09(behav)
-# Loading ieee.numeric_std(body)
-# Loading work.compteur09_1s(rtl)
-add wave -position insertpoint sim:/tb_compteur09/*
+# Loading work.tb_mae(behav)
+# Loading work.mae(rtl)
+add wave -position insertpoint sim:/tb_mae/*
 run
 run
 run
@@ -107,13 +105,4 @@ run
 run
 run
 run
-run
-run
-run
-run
-run
-run
-run
-run -continue
-run -continue
 run -all

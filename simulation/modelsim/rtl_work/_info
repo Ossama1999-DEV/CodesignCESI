@@ -8,122 +8,81 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/dbibi/test/simulation/modelsim
-Ecompteur09_1s
-Z1 w1765543338
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Emae
+Z1 w1765813815
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8C:/Users/dbibi/test/compteur09_1s.vhd
-Z6 FC:/Users/dbibi/test/compteur09_1s.vhd
+Z4 8C:/Users/dbibi/test/mae.vhd
+Z5 FC:/Users/dbibi/test/mae.vhd
 l0
-L8
-VRZ8_l<6P@@SLF00Z@<Y]60
-!s100 9TJ3aNo3m8_0gO@7m4JFc0
-Z7 OV;C;10.5b;63
+L4
+VRPeTQ0C^D36eZCV@P704<3
+!s100 @0O@zBanoa24Ln0c4IHZh1
+Z6 OV;C;10.5b;63
 31
-Z8 !s110 1765811249
+Z7 !s110 1765814263
 !i10b 1
-Z9 !s108 1765811249.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/dbibi/test/compteur09_1s.vhd|
-Z11 !s107 C:/Users/dbibi/test/compteur09_1s.vhd|
+Z8 !s108 1765814263.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/dbibi/test/mae.vhd|
+Z10 !s107 C:/Users/dbibi/test/mae.vhd|
 !i113 1
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
 Artl
 R2
 R3
-R4
-DEx4 work 13 compteur09_1s 0 22 RZ8_l<6P@@SLF00Z@<Y]60
-l29
-L16
-VF=kS2ZX8NhLoeeAo5[]_O3
-!s100 cQ[=LJCnRbzWNz<<`SR>U1
-R7
+DEx4 work 3 mae 0 22 RPeTQ0C^D36eZCV@P704<3
+l19
+L14
+V<W_>dNh?YaT>YiB7^6zYL3
+!s100 ;J5j4^IKmAnNoG^3XTm[I0
+R6
 31
-R8
+R7
 !i10b 1
+R8
 R9
 R10
+!i113 1
 R11
-!i113 1
 R12
-R13
-Etb_compteur
-Z14 w1765811221
+Etb_mae
+Z13 w1765814661
+R2
 R3
-R4
 R0
-Z15 8C:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl
-Z16 FC:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl
+Z14 8C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl
+Z15 FC:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl
 l0
-L8
-V9j>5nD^zcOB:8E1`h_g]Q2
-!s100 1bHW1H5I:SQZ5FoBkD:RU3
-R7
+L4
+VK6:JUh@2_4zRF7X5;_:4@0
+!s100 M9I4TIXjj1SQA<1jAYbb?1
+R6
 32
-Z17 !s110 1765811271
+Z16 !s110 1765814673
 !i10b 1
-Z18 !s108 1765811271.000000
-Z19 !s90 -reportprogress|300|-work|work|C:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl|
-Z20 !s107 C:/Users/dbibi/test/simulation/modelsim/TB_compteur.vhdl|
+Z17 !s108 1765814672.000000
+Z18 !s90 -reportprogress|300|-work|work|C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl|
+Z19 !s107 C:/Users/dbibi/test/simulation/modelsim/TB_mae.vhdl|
 !i113 1
-Z21 o-work work
-R13
+Z20 o-work work
+R12
 Abehav
+R2
 R3
-R4
-DEx4 work 11 tb_compteur 0 22 9j>5nD^zcOB:8E1`h_g]Q2
-l30
-L11
-V2bV2>cbl51^c1lf_0;:9<3
-!s100 S^NhfAJR]PK@9j6S^f;DR0
-R7
+Z21 DEx4 work 6 tb_mae 0 22 K6:JUh@2_4zRF7X5;_:4@0
+l27
+L7
+VPJQ`>G@YW;LTnj0c<dKDd1
+!s100 k6b?ZBzjLZlDn0`KP^1Mj0
+R6
 32
-R17
+R16
 !i10b 1
+R17
 R18
 R19
+!i113 1
 R20
-!i113 1
-R21
-R13
-Etb_compteur09
-Z22 w1765811912
-R3
-R4
-R0
-Z23 8C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl
-Z24 FC:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl
-l0
-L8
-VTbnAUSPlPh1BEGBCAH]Sz2
-!s100 T>LCU?F8i]BQB2f<nIRaY2
-R7
-32
-Z25 !s110 1765811923
-!i10b 1
-Z26 !s108 1765811923.000000
-Z27 !s90 -reportprogress|300|-work|work|C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl|
-Z28 !s107 C:/Users/dbibi/test/simulation/modelsim/TB_compteur09.vhdl|
-!i113 1
-R21
-R13
-Abehav
-R3
-R4
-Z29 DEx4 work 13 tb_compteur09 0 22 TbnAUSPlPh1BEGBCAH]Sz2
-l28
-L11
-VOhW6N?@6hj3lQ7nZJm9Vm3
-!s100 fH=mJJ`=MH2BSFj@AbQbM1
-R7
-32
-R25
-!i10b 1
-R26
-R27
-R28
-!i113 1
-R21
-R13
+R12

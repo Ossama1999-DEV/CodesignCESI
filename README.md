@@ -78,6 +78,12 @@ avec un changement toutes les ~1000 ms (1 seconde):
 
     ✔ l’objectif de l’exercice est atteint
 
+Un diviseur d’horloge a été ajouté afin de transformer l’horloge de la carte 50 MHz en une horloge lente de 1 Hz.
+Le compteur 0 à 9 est piloté par cette horloge divisée, ce qui permet une incrémentation toutes les 1 seconde.
+La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas temporel de 1 s, validant le bon fonctionnement du compteur.
+
+---
+![alt text](priseEnMain/doc/image.png)
 ---
 
 ## 📁 Outils utilisés

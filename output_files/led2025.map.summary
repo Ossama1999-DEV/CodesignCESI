@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Dec 15 16:06:27 2025
+Analysis & Synthesis Status : Successful - Mon Dec 15 16:51:13 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : led2025
-Top-level Entity Name : compteur09_1s
+Top-level Entity Name : mae
 Family : Cyclone IV E
-Total logic elements : 54
-    Total combinational functions : 54
-    Dedicated logic registers : 31
-Total registers : 31
-Total pins : 6
+Total logic elements : 1
+    Total combinational functions : 1
+    Dedicated logic registers : 1
+Total registers : 1
+Total pins : 5
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

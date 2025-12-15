@@ -1,38 +1,8 @@
-|compteur09_1s
-clk => clk_1Hz.CLK
-clk => div_counter[0].CLK
-clk => div_counter[1].CLK
-clk => div_counter[2].CLK
-clk => div_counter[3].CLK
-clk => div_counter[4].CLK
-clk => div_counter[5].CLK
-clk => div_counter[6].CLK
-clk => div_counter[7].CLK
-clk => div_counter[8].CLK
-clk => div_counter[9].CLK
-clk => div_counter[10].CLK
-clk => div_counter[11].CLK
-clk => div_counter[12].CLK
-clk => div_counter[13].CLK
-clk => div_counter[14].CLK
-clk => div_counter[15].CLK
-clk => div_counter[16].CLK
-clk => div_counter[17].CLK
-clk => div_counter[18].CLK
-clk => div_counter[19].CLK
-clk => div_counter[20].CLK
-clk => div_counter[21].CLK
-clk => div_counter[22].CLK
-clk => div_counter[23].CLK
-clk => div_counter[24].CLK
-clk => div_counter[25].CLK
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-rst => count.OUTPUTSELECT
-dout[0] << count[0].DB_MAX_OUTPUT_PORT_TYPE
-dout[1] << count[1].DB_MAX_OUTPUT_PORT_TYPE
-dout[2] << count[2].DB_MAX_OUTPUT_PORT_TYPE
-dout[3] << count[3].DB_MAX_OUTPUT_PORT_TYPE
+|mae
+clk => ep.CLK
+rst => ep.ACLR
+in0 => es.OUTPUTSELECT
+in1 => es.OUTPUTSELECT
+out1 << ep.DB_MAX_OUTPUT_PORT_TYPE
 
 

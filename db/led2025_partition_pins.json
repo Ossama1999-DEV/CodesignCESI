@@ -4,27 +4,23 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "dout[0]",
+					"name" : "out1",
 					"strict" : false
 				},
 				{
-					"name" : "dout[1]",
+					"name" : "in1",
 					"strict" : false
 				},
 				{
-					"name" : "dout[2]",
-					"strict" : false
-				},
-				{
-					"name" : "dout[3]",
-					"strict" : false
-				},
-				{
-					"name" : "rst",
+					"name" : "in0",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
 					"strict" : false
 				}
 			]
