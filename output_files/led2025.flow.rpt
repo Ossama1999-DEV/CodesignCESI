@@ -1,5 +1,5 @@
 Flow report for led2025
-Mon Dec 15 13:42:25 2025
+Mon Dec 15 16:06:57 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,22 +40,22 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Dec 15 13:42:25 2025       ;
+; Flow Status                        ; Successful - Mon Dec 15 16:06:57 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; led2025                                     ;
-; Top-level Entity Name              ; TimerLed                                    ;
+; Top-level Entity Name              ; compteur09_1s                               ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 55 / 22,320 ( < 1 % )                       ;
+;     Total combinational functions  ; 54 / 22,320 ( < 1 % )                       ;
+;     Dedicated logic registers      ; 31 / 22,320 ( < 1 % )                       ;
+; Total registers                    ; 31                                          ;
+; Total pins                         ; 6 / 154 ( 4 % )                             ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
+; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -64,54 +64,68 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/15/2025 13:42:05 ;
+; Start date & time ; 12/15/2025 16:05:59 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; led2025             ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 233497580789228.176580252435676        ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; TimerLed    ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; TimerLed    ; Top        ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; TimerLed    ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; TimerLed                               ; led2025       ; --          ; --         ;
-+-------------------------------------+----------------------------------------+---------------+-------------+------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                              ;
++-------------------------------------+----------------------------------------+---------------+---------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name   ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+---------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 233497580789228.176581115800772        ; --            ; --            ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --            ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --            ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --            ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --            ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --            ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; compteur09_1s ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; compteur09_1s ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; compteur09_1s ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --            ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --            ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --            ; --             ;
+; TOP_LEVEL_ENTITY                    ; compteur09_1s                          ; led2025       ; --            ; --             ;
++-------------------------------------+----------------------------------------+---------------+---------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                          ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:21     ; 1.0                     ; 4786 MB             ; 00:00:42                           ;
-; Total                  ; 00:00:21     ; --                      ; --                  ; 00:00:42                           ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:29     ; 1.0                     ; 4824 MB             ; 00:00:52                           ;
+; Fitter               ; 00:00:12     ; 1.0                     ; 5827 MB             ; 00:00:13                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4678 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:06     ; 1.0                     ; 4830 MB             ; 00:00:04                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4640 MB             ; 00:00:02                           ;
+; Total                ; 00:00:53     ; --                      ; --                  ; 00:01:14                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                      ;
-+------------------------+------------------+------------+------------+----------------+
-; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
-+------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; oussama          ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off led2025 -c led2025 --analysis_and_elaboration
+quartus_map --read_settings_files=on --write_settings_files=off led2025 -c led2025
+quartus_fit --read_settings_files=off --write_settings_files=off led2025 -c led2025
+quartus_asm --read_settings_files=off --write_settings_files=off led2025 -c led2025
+quartus_sta led2025 -c led2025
+quartus_eda --read_settings_files=off --write_settings_files=off led2025 -c led2025
 
 
 

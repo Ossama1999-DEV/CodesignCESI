@@ -68,6 +68,16 @@ Le compteur est alors piloté par cette horloge lente.
 ✔ Simulation possible  
 ✔ Prêt pour implémentation sur la carte DE0-Nano
 
+dout_tb passe de 0 → 1 → 2
+
+avec un changement toutes les ~1000 ms (1 seconde):
+
+    ✔ donc le temps de comptage est bien de 1 s
+
+    ✔ le compteur est synchrone
+
+    ✔ l’objectif de l’exercice est atteint
+
 ---
 
 ## 📁 Outils utilisés
