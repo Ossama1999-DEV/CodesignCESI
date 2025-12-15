@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "12/15/2025 16:51:35"
+-- DATE "12/15/2025 21:20:25"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -80,16 +80,16 @@ ENTITY 	mae IS
     PORT (
 	clk : IN std_logic;
 	rst : IN std_logic;
-	in0 : IN std_logic;
 	in1 : IN std_logic;
-	out1 : BUFFER std_logic
+	in2 : IN std_logic;
+	out1 : OUT std_logic
 	);
 END mae;
 
 -- Design Ports Information
 -- out1	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in1	=>  Location: PIN_P8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in0	=>  Location: PIN_N9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- in2	=>  Location: PIN_P8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- in1	=>  Location: PIN_N9,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- clk	=>  Location: PIN_R8,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- rst	=>  Location: PIN_J15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 
@@ -106,13 +106,13 @@ SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
 SIGNAL ww_rst : std_logic;
-SIGNAL ww_in0 : std_logic;
 SIGNAL ww_in1 : std_logic;
+SIGNAL ww_in2 : std_logic;
 SIGNAL ww_out1 : std_logic;
 SIGNAL \out1~output_o\ : std_logic;
 SIGNAL \clk~input_o\ : std_logic;
+SIGNAL \in2~input_o\ : std_logic;
 SIGNAL \in1~input_o\ : std_logic;
-SIGNAL \in0~input_o\ : std_logic;
 SIGNAL \ep~0_combout\ : std_logic;
 SIGNAL \rst~input_o\ : std_logic;
 SIGNAL \ep~q\ : std_logic;
@@ -129,8 +129,8 @@ BEGIN
 
 ww_clk <= clk;
 ww_rst <= rst;
-ww_in0 <= in0;
 ww_in1 <= in1;
+ww_in2 <= in2;
 out1 <= ww_out1;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
@@ -166,6 +166,17 @@ PORT MAP (
 	o => \clk~input_o\);
 
 -- Location: IOIBUF_X25_Y0_N15
+\in2~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_in2,
+	o => \in2~input_o\);
+
+-- Location: IOIBUF_X29_Y0_N1
 \in1~input\ : cycloneive_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
@@ -176,21 +187,10 @@ PORT MAP (
 	i => ww_in1,
 	o => \in1~input_o\);
 
--- Location: IOIBUF_X29_Y0_N1
-\in0~input\ : cycloneive_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_in0,
-	o => \in0~input_o\);
-
 -- Location: LCCOMB_X26_Y1_N28
 \ep~0\ : cycloneive_lcell_comb
 -- Equation(s):
--- \ep~0_combout\ = (\ep~q\ & ((!\in0~input_o\))) # (!\ep~q\ & (\in1~input_o\))
+-- \ep~0_combout\ = (\ep~q\ & ((!\in1~input_o\))) # (!\ep~q\ & (\in2~input_o\))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -198,9 +198,9 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \in1~input_o\,
+	datab => \in2~input_o\,
 	datac => \ep~q\,
-	datad => \in0~input_o\,
+	datad => \in1~input_o\,
 	combout => \ep~0_combout\);
 
 -- Location: IOIBUF_X53_Y14_N1

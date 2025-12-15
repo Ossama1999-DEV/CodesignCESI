@@ -5,8 +5,8 @@ entity mae is
     port (
         clk  : in  std_logic;
         rst  : in  std_logic;   -- reset actif à '1'
-        in0  : in  std_logic;
         in1  : in  std_logic;
+        in2  : in  std_logic;
         out1 : out std_logic
     );
 end entity;
@@ -19,20 +19,23 @@ architecture rtl of mae is
 begin
 
     -- 1) Process d'évolution : calcule es en fonction de ep + entrées
-    p_next_state : process(ep, in0, in1)
+    p_next_state : process(ep, in1, in2)
     begin
         es <= ep;  -- par défaut : reste dans le même état
 
         case ep is
             when etat1 =>
-                if in1 = '1' then
+                if in2 = '1' then
                     es <= etat2;
                 end if;
 
             when etat2 =>
-                if in0 = '1' then
+                if in1 = '1' then
                     es <= etat1;
                 end if;
+
+            when others =>
+                es <= etat1;  -- repli sûr si état invalide
         end case;
     end process;
 
@@ -49,9 +52,10 @@ begin
     -- 3) Process sorties : dépend uniquement de l’état présent (Moore)
     p_outputs : process(ep)
     begin
+        out1 <= '0';  -- valeur par défaut
         case ep is
-            when etat1 => out1 <= '0';
             when etat2 => out1 <= '1';
+            when others => out1 <= '0';
         end case;
     end process;
 

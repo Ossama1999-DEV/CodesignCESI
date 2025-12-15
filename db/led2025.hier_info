@@ -1,8 +1,8 @@
 |mae
 clk => ep.CLK
 rst => ep.ACLR
-in0 => es.OUTPUTSELECT
 in1 => es.OUTPUTSELECT
-out1 << ep.DB_MAX_OUTPUT_PORT_TYPE
+in2 => es.OUTPUTSELECT
+out1 <= ep.DB_MAX_OUTPUT_PORT_TYPE
 
 
