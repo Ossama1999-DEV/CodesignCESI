@@ -1,3 +1,8 @@
 *.qpf
 *.qsf
-/priseEnMain/db/*
+/db/*
+/priseEnMain/*
+/incremental_db/*
+/output_files/*
+/backup/*
+/dep/*

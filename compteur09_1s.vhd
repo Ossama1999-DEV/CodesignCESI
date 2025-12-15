@@ -36,7 +36,7 @@ begin
         if rising_edge(clk) then
             if div_counter = 49_999_999 then      -- 50 000 000 cycles = 1 sec
                 div_counter <= (others => '0');
-                clk_1Hz <= not clk_1Hz;           -- bascule → période totale = 1s
+                clk_1Hz <= not clk_1Hz;           -- bascule → periode totale = 1s
             else
                 div_counter <= div_counter + 1;
             end if;
