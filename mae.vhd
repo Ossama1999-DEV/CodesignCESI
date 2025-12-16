@@ -5,8 +5,8 @@ entity mae is
     port (
         ck   : in  std_logic;
         rst  : in  std_logic;   -- reset actif à '1'
-        T1_2 : in  std_logic;   -- transition etat1 -> etat2
-        T2_1 : in  std_logic;   -- transition etat2 -> etat1
+        in1 : in  std_logic;   -- transition etat1 -> etat2
+        in2 : in  std_logic;   -- transition etat2 -> etat1
         out1 : out std_logic    -- sortie Moore
     );
 end entity;
@@ -25,18 +25,18 @@ begin
     -- Process évolution (combinatoire) : calcule l'état suivant es
     -- Liste de sensibilité : ep + toutes les entrées
     --------------------------------------------------------------------
-    p_evolution : process(ep, T1_2, T2_1)
+    p_evolution : process(ep, in1, in2)
     begin
         case ep is
             when etat1 =>
-                if T1_2 = '1' then
+                if in1 = '1' then
                     es <= etat2;
                 else
                     es <= etat1;
                 end if;
 
             when etat2 =>
-                if T2_1 = '1' then
+                if in2 = '1' then
                     es <= etat1;
                 else
                     es <= etat2;

@@ -8,83 +8,81 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim
-Ecompteur09_1s
-Z1 w1765869247
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Emae
+Z1 w1765871797
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur09_1s.vhd
-Z6 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur09_1s.vhd
+Z4 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd
+Z5 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd
 l0
-L8
-VRZ8_l<6P@@SLF00Z@<Y]60
-!s100 9TJ3aNo3m8_0gO@7m4JFc0
-Z7 OV;C;10.5b;63
+L4
+VJecmY40I<l[zlR6=;Q=cd1
+!s100 U_h1bhkWYmJF;Um3@LohT3
+Z6 OV;C;10.5b;63
 31
-Z8 !s110 1765869547
+Z7 !s110 1765871915
 !i10b 1
-Z9 !s108 1765869547.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur09_1s.vhd|
-Z11 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur09_1s.vhd|
+Z8 !s108 1765871915.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd|
+Z10 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd|
 !i113 1
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
 Artl
 R2
 R3
-R4
-DEx4 work 13 compteur09_1s 0 22 RZ8_l<6P@@SLF00Z@<Y]60
-l29
-L16
-VF=kS2ZX8NhLoeeAo5[]_O3
-!s100 cQ[=LJCnRbzWNz<<`SR>U1
-R7
+DEx4 work 3 mae 0 22 JecmY40I<l[zlR6=;Q=cd1
+l22
+L14
+Vb0z^KFkZmWJDP6ZN]X7673
+!s100 ;6DgeTBNl58GlE]:eAcN?2
+R6
 31
-R8
+R7
 !i10b 1
+R8
 R9
 R10
+!i113 1
 R11
-!i113 1
 R12
-R13
-Etb_compteur09
-Z14 w1765869249
+Etb_mae
+Z13 w1765871825
+R2
 R3
-R4
 R0
-Z15 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_compteur09.vhdl
-Z16 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_compteur09.vhdl
+Z14 8C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl
+Z15 FC:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl
 l0
-L8
-VTbnAUSPlPh1BEGBCAH]Sz2
-!s100 T>LCU?F8i]BQB2f<nIRaY2
-R7
+L4
+VK6:JUh@2_4zRF7X5;_:4@0
+!s100 M9I4TIXjj1SQA<1jAYbb?1
+R6
 32
-Z17 !s110 1765869622
+Z16 !s110 1765871922
 !i10b 1
-Z18 !s108 1765869622.000000
-Z19 !s90 -reportprogress|300|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_compteur09.vhdl|
-Z20 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_compteur09.vhdl|
+Z17 !s108 1765871922.000000
+Z18 !s90 -reportprogress|300|-work|work|C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl|
+Z19 !s107 C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl|
 !i113 1
-Z21 o-work work
-R13
+Z20 o-work work
+R12
 Abehav
+R2
 R3
-R4
-DEx4 work 13 tb_compteur09 0 22 TbnAUSPlPh1BEGBCAH]Sz2
-l28
-L11
-VOhW6N?@6hj3lQ7nZJm9Vm3
-!s100 fH=mJJ`=MH2BSFj@AbQbM1
-R7
+DEx4 work 6 tb_mae 0 22 K6:JUh@2_4zRF7X5;_:4@0
+l26
+L7
+V3Y3omnlHQK1Y8QbF>MEEk3
+!s100 ha?THXoWISK7HdbkUNB;n1
+R6
 32
-R17
+R16
 !i10b 1
+R17
 R18
 R19
-R20
 !i113 1
-R21
-R13
+R20
+R12

@@ -29,7 +29,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "mae")
-  (DATE "12/16/2025 08:44:13")
+  (DATE "12/16/2025 09:24:25")
   (VENDOR "Altera")
   (PROGRAM "Quartus Prime")
   (VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition")
@@ -41,8 +41,8 @@
     (INSTANCE \\out1\~output\\)
     (DELAY
       (ABSOLUTE
-        (PORT i (187:187:187) (226:226:226))
-        (IOPATH i o (1600:1600:1600) (1625:1625:1625))
+        (PORT i (1428:1428:1428) (1667:1667:1667))
+        (IOPATH i o (1643:1643:1643) (1588:1588:1588))
       )
     )
   )
@@ -51,25 +51,25 @@
     (INSTANCE \\ck\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (238:238:238) (618:618:618))
+        (IOPATH i o (153:153:153) (704:704:704))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneive_io_ibuf")
-    (INSTANCE \\T2_1\~input\\)
+    (INSTANCE \\in2\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (238:238:238) (618:618:618))
+        (IOPATH i o (153:153:153) (705:705:705))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneive_io_ibuf")
-    (INSTANCE \\T1_2\~input\\)
+    (INSTANCE \\in1\~input\\)
     (DELAY
       (ABSOLUTE
-        (IOPATH i o (238:238:238) (618:618:618))
+        (IOPATH i o (153:153:153) (705:705:705))
       )
     )
   )
@@ -78,9 +78,9 @@
     (INSTANCE \\es\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT dataa (1456:1456:1456) (1629:1629:1629))
-        (PORT datad (1573:1573:1573) (1750:1750:1750))
-        (IOPATH dataa combout (158:158:158) (157:157:157))
+        (PORT datab (1088:1088:1088) (944:944:944))
+        (PORT datad (2165:2165:2165) (2454:2454:2454))
+        (IOPATH datab combout (160:160:160) (156:156:156))
         (IOPATH datac combout (190:190:190) (195:195:195))
         (IOPATH datad combout (68:68:68) (63:63:63))
       )
@@ -100,9 +100,9 @@
     (INSTANCE ep)
     (DELAY
       (ABSOLUTE
-        (PORT clk (580:580:580) (597:597:597))
+        (PORT clk (661:661:661) (635:635:635))
         (PORT d (37:37:37) (50:50:50))
-        (PORT clrn (2654:2654:2654) (2965:2965:2965))
+        (PORT clrn (1360:1360:1360) (1212:1212:1212))
         (IOPATH (posedge clk) q (105:105:105) (105:105:105))
         (IOPATH (negedge clrn) q (110:110:110) (110:110:110))
       )

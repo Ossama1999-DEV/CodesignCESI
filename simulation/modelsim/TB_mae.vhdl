@@ -9,16 +9,16 @@ architecture behav of TB_mae is
 
     signal ck_tb   : std_logic := '0';
     signal rst_tb  : std_logic := '1';
-    signal T1_2_tb : std_logic := '0';
-    signal T2_1_tb : std_logic := '0';
+    signal in1_tb : std_logic := '0';
+    signal in2_tb : std_logic := '0';
     signal out1_tb : std_logic;
 
     component mae
         port (
             ck   : in  std_logic;
             rst  : in  std_logic;
-            T1_2 : in  std_logic;
-            T2_1 : in  std_logic;
+            in1 : in  std_logic;
+            in2 : in  std_logic;
             out1 : out std_logic
         );
     end component;
@@ -29,8 +29,8 @@ begin
         port map (
             ck   => ck_tb,
             rst  => rst_tb,
-            T1_2 => T1_2_tb,
-            T2_1 => T2_1_tb,
+            in1 => in1_tb,
+            in2 => in2_tb,
             out1 => out1_tb
         );
 
@@ -56,35 +56,35 @@ begin
         -- CYCLE 1 : reset -> etat1 -> etat2 -> etat1
         ----------------------------------------------------------------
         rst_tb  <= '1';
-        T1_2_tb <= '0';
-        T2_1_tb <= '0';
+        in1_tb <= '0';
+        in2_tb <= '0';
         wait_rise(1);
         rst_tb  <= '0';
         wait_rise(1);
 
         assert out1_tb = '0' report "CYCLE1: apres reset, out1 doit etre 0 (etat1)" severity error;
 
-        -- maintien en etat1 si on active T2_1 (pas de transition prévue)
-        T2_1_tb <= '1'; wait_rise(1); T2_1_tb <= '0'; wait_rise(1);
-        assert out1_tb = '0' report "CYCLE1: en etat1, T2_1 ne doit pas changer l'etat" severity error;
+        -- maintien en etat1 si on active in2 (pas de transition prévue)
+        in2_tb <= '1'; wait_rise(1); in2_tb <= '0'; wait_rise(1);
+        assert out1_tb = '0' report "CYCLE1: en etat1, in2 ne doit pas changer l'etat" severity error;
 
-        -- etat1 -> etat2 via T1_2
-        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
-        assert out1_tb = '1' report "CYCLE1: attendu etat2 (out1=1) apres T1_2" severity error;
+        -- etat1 -> etat2 via in1
+        in1_tb <= '1'; wait_rise(1); in1_tb <= '0'; wait_rise(1);
+        assert out1_tb = '1' report "CYCLE1: attendu etat2 (out1=1) apres in1" severity error;
 
-        -- maintien en etat2 si on active T1_2 (pas de transition prévue)
-        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
-        assert out1_tb = '1' report "CYCLE1: en etat2, T1_2 ne doit pas changer l'etat" severity error;
+        -- maintien en etat2 si on active in1 (pas de transition prévue)
+        in1_tb <= '1'; wait_rise(1); in1_tb <= '0'; wait_rise(1);
+        assert out1_tb = '1' report "CYCLE1: en etat2, in1 ne doit pas changer l'etat" severity error;
 
-        -- etat2 -> etat1 via T2_1
-        T2_1_tb <= '1'; wait_rise(1); T2_1_tb <= '0'; wait_rise(1);
-        assert out1_tb = '0' report "CYCLE1: attendu retour etat1 (out1=0) apres T2_1" severity error;
+        -- etat2 -> etat1 via in2
+        in2_tb <= '1'; wait_rise(1); in2_tb <= '0'; wait_rise(1);
+        assert out1_tb = '0' report "CYCLE1: attendu retour etat1 (out1=0) apres in2" severity error;
 
         ----------------------------------------------------------------
         -- CYCLE 2 : refaire + reset en plein etat2
         ----------------------------------------------------------------
         -- etat1 -> etat2
-        T1_2_tb <= '1'; wait_rise(1); T1_2_tb <= '0'; wait_rise(1);
+        in1_tb <= '1'; wait_rise(1); in1_tb <= '0'; wait_rise(1);
         assert out1_tb = '1' report "CYCLE2: attendu etat2 (out1=1)" severity error;
 
         -- reset pendant etat2 => retour etat1
