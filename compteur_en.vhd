@@ -20,7 +20,7 @@ begin
             if rst = '1' then
                 count <= (others => '0');
             elsif en = '1' then
-                count <= count + 1; -- 0..15 puis overflow naturel
+                count <= count + 1; -- 0..15 
             end if;
         end if;
     end process;

@@ -137,6 +137,14 @@ exo5: TOP : MAE + Compteur
 
 ![alt text](priseEnMain/doc/exo5_avant_sim.JPG)
 
+👉 C’est quoi idle ?
+
+idle = état d’attente / repos
+
+**pour 20 ms**
+![alt text](priseEnMain/doc/exo5_affiche_20ms.JPG)
+
+
 ---
 
 ## 📁 Outils utilisés

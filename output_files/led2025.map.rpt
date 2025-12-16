@@ -1,5 +1,5 @@
 Analysis & Synthesis report for led2025
-Tue Dec 16 10:01:41 2025
+Tue Dec 16 11:22:33 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -44,7 +44,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 16 10:01:41 2025       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 16 11:22:33 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; led2025                                     ;
 ; Top-level Entity Name              ; exo5_top                                    ;
@@ -297,7 +297,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Dec 16 10:01:28 2025
+    Info: Processing started: Tue Dec 16 11:22:21 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off led2025 -c led2025
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -326,8 +326,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file exo5_to
     Info (12022): Found design unit 1: exo5_top-rtl File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 13
     Info (12023): Found entity 1: exo5_top File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 4
 Info (12127): Elaborating entity "exo5_top" for the top level hierarchy
-Info (12128): Elaborating entity "mae_go_20ms" for hierarchy "mae_go_20ms:u_mae" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 17
-Info (12128): Elaborating entity "compteur_en" for hierarchy "compteur_en:u_cnt" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 25
+Info (12128): Elaborating entity "mae_go_20ms" for hierarchy "mae_go_20ms:u_mae" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 23
+Info (12128): Elaborating entity "compteur_en" for hierarchy "compteur_en:u_cnt" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 31
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -336,9 +336,9 @@ Info (21057): Implemented 49 device resources after synthesis - the final resour
     Info (21059): Implemented 4 output pins
     Info (21061): Implemented 42 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 655 megabytes
-    Info: Processing ended: Tue Dec 16 10:01:41 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 656 megabytes
+    Info: Processing ended: Tue Dec 16 11:22:33 2025
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:21
 
 
