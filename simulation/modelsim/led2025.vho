@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "12/15/2025 23:01:37"
+-- DATE "12/16/2025 08:44:13"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -82,7 +82,7 @@ ENTITY 	mae IS
 	rst : IN std_logic;
 	T1_2 : IN std_logic;
 	T2_1 : IN std_logic;
-	out1 : OUT std_logic
+	out1 : BUFFER std_logic
 	);
 END mae;
 

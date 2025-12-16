@@ -82,6 +82,8 @@ Un diviseur d’horloge a été ajouté afin de transformer l’horloge de la ca
 Le compteur 0 à 9 est piloté par cette horloge divisée, ce qui permet une incrémentation toutes les 1 seconde.
 La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas temporel de 1 s, validant le bon fonctionnement du compteur.
 
+![alt text](priseEnMain/doc/shema_pushBotton.JPG)
+
 ---
 
 ## exo 4

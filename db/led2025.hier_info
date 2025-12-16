@@ -3,6 +3,6 @@ ck => ep.CLK
 rst => ep.ACLR
 T1_2 => es.DATAB
 T2_1 => es.DATAA
-out1 <= ep.DB_MAX_OUTPUT_PORT_TYPE
+out1 << ep.DB_MAX_OUTPUT_PORT_TYPE
 
 
