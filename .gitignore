@@ -4,3 +4,5 @@
 /db/*
 /outputs_files/*
 /incremental_db/*
+*.metadata
+/SPOC/db/*.flock

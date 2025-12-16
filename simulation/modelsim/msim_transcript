@@ -135,3 +135,31 @@ vsim -gui -l msim_transcript work.tb_exo5
 # Loading work.exo5_top(rtl)
 # Loading work.mae_go_20ms(rtl)
 # Loading work.compteur_en(rtl)
+add wave -position insertpoint sim:/tb_exo5/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: dbibi  Hostname: OUSSAMA  ProcessID: 41688
+#           Attempting to use alternate WLF file "./wlft3sq3w0".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft3sq3w0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Note: Simulation OK : anti-rebond 20ms + 1 increment par appui VALIDES
+#    Time: 384000400 ns  Iteration: 0  Instance: /tb_exo5
+# End time: 11:46:29 on Dec 16,2025, Elapsed time: 0:33:08
+# Errors: 0, Warnings: 2

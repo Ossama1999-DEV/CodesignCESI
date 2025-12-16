@@ -144,6 +144,35 @@ idle = état d’attente / repos
 **pour 20 ms**
 ![alt text](priseEnMain/doc/exo5_affiche_20ms.JPG)
 
+---
+
+## Exercice 6 : 
+Réaliser le SOPC sopc_compteur, test expérimental sur carte DE0 Nano.
+**Conception des SOC/SOPC (Platform Designer)**
+
+- **Utilisation de Platform Designer pour la conception de SOPC (System On Programmable Chip)SOPC**
+    
+    Développement matériel HARD         Développement logiciel SOFT
+    
+    Q18 + Plateform Designer                   NIOS II (processeur softcore)
+    
+    (Q11 + SOPC Builder)
+    
+    **Platform Designer** permet, entre autres, de concevoir des microcontrôleurs spécifiques à une application. Ces microcontrôleurs comportent donc une partie processeur (softcore NIOS II) à laquelle on associe des périphériques (PIO, Timers, UART, USB, composants propriétaires, ...) et de la mémoire. Cette dernière peut être embarquée dans le FPGA (on parle alors de RAM/ROM On Chip) ou à l’extérieur du composant FPGA.
+    
+    La partie microprocesseur proprement dite est le softcore NIOS II de INTEL, processeur de 32 bits qui se décline en trois versions : économique, standard, rapide. La version économique, la moins puissante, utilise le moins de ressources du FPGA. Bien sûr il est possible d’intégrer d’autres types de processeurs pour peu qu’on dispose de leurs modèles (VHDL, Verilog, ...).
+    
+- La création d’une application SOPC comprend les étapes suivantes :
+    
+    1) Création du composant matériel (processeur + périphériques) dans l’environnement Quartus II.
+    
+    2) Eventuellement simulation avec l’outil Modelsim.
+    
+    3) Téléchargement dans le composant FPGA (configuration) (environnement Quartus II).
+    
+    4) Création du logiciel dans l’environnement NIOS2IDE, téléchargement dans le FPGA et débogage.
+
+
 
 ---
 
