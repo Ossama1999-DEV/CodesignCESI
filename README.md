@@ -174,6 +174,13 @@ Réaliser le SOPC sopc_compteur, test expérimental sur carte DE0 Nano.
 
 **Partie 2 : Développement logiciel**
 
+VALIDE [OK]
+
+---
+
+## Partie 3 : 
+**Intégration d’un composant propriétaire**
+![alt text](priseEnMain/doc/pwm.webp)
 
 
 ---
