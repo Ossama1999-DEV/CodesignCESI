@@ -5,5 +5,15 @@
 /outputs_files/*
 /incremental_db/*
 *.metadata
+
 /SPOC/db/*.flock
 /SPOC/db/*
+/SPOC/outputs_files/*
+*.qsf
+/SPOC/db/*.flock
+/SPOC/*.db_info
+/SPOC/db/*
+/SPOC/outputs_files/*
+/SPOC/incremental_db/*
+*.metadata
+/SPOC/.qsys_edit
