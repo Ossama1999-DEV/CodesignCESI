@@ -6,3 +6,4 @@
 /incremental_db/*
 *.metadata
 /SPOC/db/*.flock
+/SPOC/db/*
