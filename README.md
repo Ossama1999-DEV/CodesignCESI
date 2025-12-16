@@ -172,6 +172,8 @@ Réaliser le SOPC sopc_compteur, test expérimental sur carte DE0 Nano.
     
     4) Création du logiciel dans l’environnement NIOS2IDE, téléchargement dans le FPGA et débogage.
 
+**Partie 2 : Développement logiciel**
+
 
 
 ---
