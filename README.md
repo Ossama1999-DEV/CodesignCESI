@@ -92,6 +92,8 @@ La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas t
 Le testbench vérifie le bon fonctionnement de la machine à états en testant le reset, les transitions entre etat1 et etat2, ainsi que le maintien dans un état lorsque l’entrée ne correspond pas à une transition valide.
 Il valide également la priorité du reset, y compris lorsqu’il est appliqué pendant un changement d’état, et confirme **que la sortie out1 dépend uniquement de l’état présent (machine de Moore).**
 
+![alt text](priseEnMain\doc\mae_verif_prof.JPG)
+
 ---
 
 ## 📁 Outils utilisés
