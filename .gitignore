@@ -1,19 +1,29 @@
+# ===== Quartus / Platform Designer =====
 *.qsf
-/db/*.flock
-*.db_info
-/db/*
-/outputs_files/*
-/incremental_db/*
-*.metadata
+*.qpf
 
-/SPOC/db/*.flock
-/SPOC/db/*
-/SPOC/outputs_files/*
-*.qsf
-/SPOC/db/*.flock
-/SPOC/*.db_info
-/SPOC/db/*
-/SPOC/outputs_files/*
-/SPOC/incremental_db/*
+# Dossiers générés (JAMAIS versionnés)
+db/
+incremental_db/
+output_files/
+simulation/
+
+# SOPC / Qsys
+SOPC/db/
+SOPC/incremental_db/
+SOPC/output_files/
+SOPC/.qsys_edit/
+SOPC/*.sopcinfo
+SOPC/*.qip
+SOPC/**/*.flock
+SOPC/**/*.rdr.*
+
+# Fichiers temporaires Quartus
+*.db_info
 *.metadata
-/SPOC/.qsys_edit
+*.bak
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store

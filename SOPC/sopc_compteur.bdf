@@ -1,0 +1,147 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 112 432 296 448)
+	(text "INPUT" (rect 141 0 177 13)(font "Arial" (font_size 6)))
+	(text "bouttons[1..0]" (rect 5 0 93 15)(font "Arial" ))
+	(pt 184 8)
+	(drawing
+		(line (pt 100 12)(pt 125 12))
+		(line (pt 100 4)(pt 125 4))
+		(line (pt 129 8)(pt 184 8))
+		(line (pt 100 12)(pt 100 4))
+		(line (pt 125 4)(pt 129 8))
+		(line (pt 125 12)(pt 129 8))
+	)
+	(text "VCC" (rect 144 7 168 20)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 136 488 304 504)
+	(text "INPUT" (rect 125 0 161 13)(font "Arial" (font_size 6)))
+	(text "clk" (rect 5 0 23 19)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 152 20)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 280 608 456 624)
+	(text "OUTPUT" (rect 1 0 51 13)(font "Arial" (font_size 6)))
+	(text "LED[7..0]" (rect 90 0 147 19)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(symbol
+	(rect 496 384 992 568)
+	(text "unsaved" (rect 225 -1 295 18)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 168 31 183)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "boutons_external_connection_export[1..0]" (rect 0 0 285 16)(font "Arial" (font_size 8)))
+		(text "boutons_external_connection_export[1..0]" (rect 4 61 289 77)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 224 72)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "clk_clk" (rect 0 0 48 16)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 101 52 117)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 224 112))
+	)
+	(port
+		(pt 0 152)
+		(output)
+		(text "leds_external_connection_export[7..0]" (rect 0 0 259 16)(font "Arial" (font_size 8)))
+		(text "leds_external_connection_export[7..0]" (rect 4 141 263 157)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 224 152)(line_width 3))
+	)
+	(drawing
+		(text "boutons_external_connection" (rect 56 43 280 60)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 67 267 82)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 209 83 230 100)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 229 107 246 122)(font "Arial" (color 0 0 0)))
+		(text "leds_external_connection" (rect 78 123 272 140)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "export" (rect 229 147 267 162)(font "Arial" (color 0 0 0)))
+		(text " system " (rect 461 168 515 183)(font "Arial" ))
+		(line (pt 224 32)(pt 272 32))
+		(line (pt 272 32)(pt 272 168))
+		(line (pt 224 168)(pt 272 168))
+		(line (pt 224 32)(pt 224 168))
+		(line (pt 225 52)(pt 225 76))
+		(line (pt 226 52)(pt 226 76))
+		(line (pt 225 92)(pt 225 116))
+		(line (pt 226 92)(pt 226 116))
+		(line (pt 225 132)(pt 225 156))
+		(line (pt 226 132)(pt 226 156))
+		(line (pt 0 0)(pt 496 0))
+		(line (pt 496 0)(pt 496 184))
+		(line (pt 0 184)(pt 496 184))
+		(line (pt 0 0)(pt 0 184))
+	)
+)
+(connector
+	(pt 496 456)
+	(pt 296 456)
+	(bus)
+)
+(connector
+	(pt 296 456)
+	(pt 296 440)
+	(bus)
+)
+(connector
+	(pt 496 496)
+	(pt 304 496)
+)
+(connector
+	(pt 496 536)
+	(pt 208 536)
+	(bus)
+)
+(connector
+	(pt 208 536)
+	(pt 208 616)
+	(bus)
+)
+(connector
+	(pt 208 616)
+	(pt 280 616)
+	(bus)
+)
