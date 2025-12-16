@@ -1,8 +1,94 @@
-|mae
-ck => ep.CLK
-rst => ep.ACLR
-in1 => es.DATAB
-in2 => es.DATAA
-out1 << ep.DB_MAX_OUTPUT_PORT_TYPE
+|exo5_top
+clk_50 => mae_go_20ms:u_mae.clk
+clk_50 => compteur_en:u_cnt.clk
+rst => mae_go_20ms:u_mae.rst
+rst => compteur_en:u_cnt.rst
+go => mae_go_20ms:u_mae.go
+dout[0] <= compteur_en:u_cnt.dout[0]
+dout[1] <= compteur_en:u_cnt.dout[1]
+dout[2] <= compteur_en:u_cnt.dout[2]
+dout[3] <= compteur_en:u_cnt.dout[3]
+
+
+|exo5_top|mae_go_20ms:u_mae
+clk => timer_done.CLK
+clk => timer_cnt[0].CLK
+clk => timer_cnt[1].CLK
+clk => timer_cnt[2].CLK
+clk => timer_cnt[3].CLK
+clk => timer_cnt[4].CLK
+clk => timer_cnt[5].CLK
+clk => timer_cnt[6].CLK
+clk => timer_cnt[7].CLK
+clk => timer_cnt[8].CLK
+clk => timer_cnt[9].CLK
+clk => timer_cnt[10].CLK
+clk => timer_cnt[11].CLK
+clk => timer_cnt[12].CLK
+clk => timer_cnt[13].CLK
+clk => timer_cnt[14].CLK
+clk => timer_cnt[15].CLK
+clk => timer_cnt[16].CLK
+clk => timer_cnt[17].CLK
+clk => timer_cnt[18].CLK
+clk => timer_cnt[19].CLK
+clk => ep~1.DATAIN
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_cnt.OUTPUTSELECT
+rst => timer_done.OUTPUTSELECT
+rst => ep.OUTPUTSELECT
+rst => ep.OUTPUTSELECT
+rst => ep.OUTPUTSELECT
+rst => ep.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go => es.OUTPUTSELECT
+go_compte <= go_compte.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|exo5_top|compteur_en:u_cnt
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+en => count.OUTPUTSELECT
+en => count.OUTPUTSELECT
+en => count.OUTPUTSELECT
+en => count.OUTPUTSELECT
+dout[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
 
 

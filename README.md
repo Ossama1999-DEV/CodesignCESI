@@ -92,7 +92,50 @@ La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas t
 Le testbench vérifie le bon fonctionnement de la machine à états en testant le reset, les transitions entre etat1 et etat2, ainsi que le maintien dans un état lorsque l’entrée ne correspond pas à une transition valide.
 Il valide également la priorité du reset, y compris lorsqu’il est appliqué pendant un changement d’état, et confirme **que la sortie out1 dépend uniquement de l’état présent (machine de Moore).**
 
+Dans ton TB, tu as :
+constant clk_period : time := 20 ns;
+et :
+    ck_tb <= '0'; wait for clk_period/2;
+    ck_tb <= '1'; wait for clk_period/2;
+
+    ➡️ Période = 20 ns
+    ➡️ Fréquence = 1 / 20 ns = 50 MHz
+
 ![alt text](priseEnMain/doc/mae_verif_prof.JPG)
+
+---
+
+## Exercice 5 : 
+Programmer, simuler et tester le compteur asynchrone suivant :
+
+![alt text](priseEnMain/doc/exo5_enonce.webp)
+
+**Cahier des charges :**
+OK ✅ Exo5 = 1 incrémentation par appui sur go, avec anti-rebond 20 ms (clk = 50 MHz).
+Le Compteur doit être incrémenté chaque fois que le bouton **go** est activé (afin d’éviter les rebonds du bouton le temps d’appui minimum est de 20ms)
+
+Rmque : Une incrémentation par appui
+
+l'idee:
+une MAE détecte l’appui
+un timer 20 ms valide que le bouton est bien stable
+la MAE génère une impulsion go_compte d’un seul cycle d’horloge
+le compteur incrémente uniquement sur cette impulsion
+➡️ donc une incrémentation par appui, même si tu gardes le bouton appuyé.
+
+**Ce que tu dois observer (validation Exo5)**
+
+Si tu appuies une fois sur go (même longtemps) → dout fait +1 une seule fois
+Les rebonds (impulsions rapides < 20ms) → ignorés
+Si tu veux, je te fais aussi un testbench Exo5 où je simule des rebonds (go qui “tremble” pendant 5ms puis se stabilise) pour prouver que ça n’incrémente qu’une fois.
+
+
+On vas coder 3 file:
+compteur_en : Compteur 4 bits incrémenté par impulsion (enable)
+mae_go_20ms: MAE + Timer 20 ms + impulsion go_compte
+exo5: TOP : MAE + Compteur
+
+![alt text](priseEnMain/doc/exo5_avant_sim.JPG)
 
 ---
 

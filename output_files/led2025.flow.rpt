@@ -1,5 +1,5 @@
 Flow report for led2025
-Tue Dec 16 09:24:25 2025
+Tue Dec 16 10:01:59 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Dec 16 09:24:25 2025       ;
+; Flow Status                        ; Successful - Tue Dec 16 10:01:59 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; led2025                                     ;
-; Top-level Entity Name              ; mae                                         ;
+; Top-level Entity Name              ; exo5_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1 / 22,320 ( < 1 % )                        ;
-;     Total combinational functions  ; 1 / 22,320 ( < 1 % )                        ;
-;     Dedicated logic registers      ; 1 / 22,320 ( < 1 % )                        ;
-; Total registers                    ; 1                                           ;
-; Total pins                         ; 5 / 154 ( 3 % )                             ;
+; Total logic elements               ; 41 / 22,320 ( < 1 % )                       ;
+;     Total combinational functions  ; 41 / 22,320 ( < 1 % )                       ;
+;     Dedicated logic registers      ; 29 / 22,320 ( < 1 % )                       ;
+; Total registers                    ; 29                                          ;
+; Total pins                         ; 7 / 154 ( 5 % )                             ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                         ;
 ; Embedded Multiplier 9-bit elements ; 0 / 132 ( 0 % )                             ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/16/2025 09:23:56 ;
+; Start date & time ; 12/16/2025 10:01:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; led2025             ;
 +-------------------+---------------------+
@@ -75,19 +75,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 47100569179.176587343608408            ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 47100569179.176587568908656            ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --             ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; mae         ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; mae         ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; mae         ; Top            ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; exo5_top    ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; exo5_top    ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; exo5_top    ; Top            ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --             ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --             ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; mae                                    ; led2025       ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; exo5_top                               ; led2025       ; --          ; --             ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 
 
@@ -96,12 +96,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 651 MB              ; 00:00:21                           ;
-; Fitter               ; 00:00:05     ; 1.0                     ; 1311 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 536 MB              ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 632 MB              ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 498 MB              ; 00:00:01                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:30                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 655 MB              ; 00:00:24                           ;
+; Fitter               ; 00:00:06     ; 1.0                     ; 1327 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 538 MB              ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 632 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 502 MB              ; 00:00:01                           ;
+; Total                ; 00:00:26     ; --                      ; --                  ; 00:00:34                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for led2025
-Tue Dec 16 09:24:08 2025
+Tue Dec 16 10:01:41 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,10 +13,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. State Machine - |exo5_top|mae_go_20ms:u_mae|ep
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +44,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 16 09:24:08 2025       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 16 10:01:41 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; led2025                                     ;
-; Top-level Entity Name              ; mae                                         ;
+; Top-level Entity Name              ; exo5_top                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1                                           ;
-;     Total combinational functions  ; 1                                           ;
-;     Dedicated logic registers      ; 1                                           ;
-; Total registers                    ; 1                                           ;
-; Total pins                         ; 5                                           ;
+; Total logic elements               ; 41                                          ;
+;     Total combinational functions  ; 41                                          ;
+;     Dedicated logic registers      ; 29                                          ;
+; Total registers                    ; 29                                          ;
+; Total pins                         ; 7                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -65,7 +67,7 @@ refer to the applicable agreement for further details.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE22F17C6       ;                    ;
-; Top-level entity name                                            ; mae                ; led2025            ;
+; Top-level entity name                                            ; exo5_top           ; led2025            ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -162,55 +164,72 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
-; mae.vhd                          ; yes             ; User VHDL File  ; C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; compteur_en.vhd                  ; yes             ; User VHDL File  ; C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur_en.vhd ;         ;
+; mae_go_20ms.vhd                  ; yes             ; User VHDL File  ; C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae_go_20ms.vhd ;         ;
+; exo5_top.vhd                     ; yes             ; User VHDL File  ; C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd    ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 1     ;
-;                                             ;       ;
-; Total combinational functions               ; 1     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 1     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 1     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 1     ;
-;     -- Dedicated logic registers            ; 1     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 5     ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; ep    ;
-; Maximum fan-out                             ; 2     ;
-; Total fan-out                               ; 12    ;
-; Average fan-out                             ; 1.00  ;
-+---------------------------------------------+-------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 41           ;
+;                                             ;              ;
+; Total combinational functions               ; 41           ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 13           ;
+;     -- 3 input functions                    ; 4            ;
+;     -- <=2 input functions                  ; 24           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 22           ;
+;     -- arithmetic mode                      ; 19           ;
+;                                             ;              ;
+; Total registers                             ; 29           ;
+;     -- Dedicated logic registers            ; 29           ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 7            ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 29           ;
+; Total fan-out                               ; 224          ;
+; Average fan-out                             ; 2.67         ;
++---------------------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |mae                       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |mae                ; mae         ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
+; |exo5_top                  ; 41 (0)              ; 29 (0)                    ; 0           ; 0            ; 0       ; 0         ; 7    ; 0            ; |exo5_top                   ; exo5_top    ; work         ;
+;    |compteur_en:u_cnt|     ; 6 (6)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |exo5_top|compteur_en:u_cnt ; compteur_en ; work         ;
+;    |mae_go_20ms:u_mae|     ; 35 (35)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |exo5_top|mae_go_20ms:u_mae ; mae_go_20ms ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------+
+; State Machine - |exo5_top|mae_go_20ms:u_mae|ep                       ;
++-----------------+-----------------+----------+-------------+---------+
+; Name            ; ep.wait_release ; ep.pulse ; ep.debounce ; ep.idle ;
++-----------------+-----------------+----------+-------------+---------+
+; ep.idle         ; 0               ; 0        ; 0           ; 0       ;
+; ep.debounce     ; 0               ; 0        ; 1           ; 1       ;
+; ep.pulse        ; 0               ; 1        ; 0           ; 1       ;
+; ep.wait_release ; 1               ; 0        ; 0           ; 1       ;
++-----------------+-----------------+----------+-------------+---------+
 
 
 +------------------------------------------------------+
@@ -218,14 +237,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 29    ;
+; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 24    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |exo5_top|compteur_en:u_cnt|count[0]     ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |exo5_top|mae_go_20ms:u_mae|timer_cnt[1] ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |exo5_top|mae_go_20ms:u_mae|ep           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -233,15 +263,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 5                           ;
-; cycloneiii_ff         ; 1                           ;
-;     CLR               ; 1                           ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         3 data inputs ; 1                           ;
+; boundary_port         ; 7                           ;
+; cycloneiii_ff         ; 29                          ;
+;     ENA               ; 4                           ;
+;     ENA SCLR          ; 20                          ;
+;     plain             ; 5                           ;
+; cycloneiii_lcell_comb ; 41                          ;
+;     arith             ; 19                          ;
+;         2 data inputs ; 19                          ;
+;     normal            ; 22                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 13                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.67                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.38                        ;
 +-----------------------+-----------------------------+
 
 
@@ -260,7 +297,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Dec 16 09:23:56 2025
+    Info: Processing started: Tue Dec 16 10:01:28 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off led2025 -c led2025
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -279,18 +316,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file compteu
 Info (12021): Found 2 design units, including 1 entities, in source file mae.vhd
     Info (12022): Found design unit 1: mae-rtl File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd Line: 14
     Info (12023): Found entity 1: mae File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd Line: 4
-Info (12127): Elaborating entity "mae" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file compteur_en.vhd
+    Info (12022): Found design unit 1: compteur_en-rtl File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur_en.vhd Line: 14
+    Info (12023): Found entity 1: compteur_en File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur_en.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mae_go_20ms.vhd
+    Info (12022): Found design unit 1: mae_go_20ms-rtl File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae_go_20ms.vhd Line: 14
+    Info (12023): Found entity 1: mae_go_20ms File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae_go_20ms.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file exo5_top.vhd
+    Info (12022): Found design unit 1: exo5_top-rtl File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 13
+    Info (12023): Found entity 1: exo5_top File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 4
+Info (12127): Elaborating entity "exo5_top" for the top level hierarchy
+Info (12128): Elaborating entity "mae_go_20ms" for hierarchy "mae_go_20ms:u_mae" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 17
+Info (12128): Elaborating entity "compteur_en" for hierarchy "compteur_en:u_cnt" File: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd Line: 25
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 6 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 1 logic cells
+Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 42 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 651 megabytes
-    Info: Processing ended: Tue Dec 16 09:24:08 2025
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Peak virtual memory: 655 megabytes
+    Info: Processing ended: Tue Dec 16 10:01:41 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:24
 
 

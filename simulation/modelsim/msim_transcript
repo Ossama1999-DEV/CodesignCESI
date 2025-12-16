@@ -10,50 +10,88 @@
 # Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd}
+# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur_en.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:58:35 on Dec 16,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae.vhd 
+# Start time: 10:07:56 on Dec 16,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/compteur_en.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity mae
-# -- Compiling architecture rtl of mae
-# End time: 08:58:35 on Dec 16,2025, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity compteur_en
+# -- Compiling architecture rtl of compteur_en
+# End time: 10:07:56 on Dec 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae_go_20ms.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:57 on Dec 16,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/mae_go_20ms.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mae_go_20ms
+# -- Compiling architecture rtl of mae_go_20ms
+# End time: 10:07:57 on Dec 16,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:57 on Dec 16,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/exo5_top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity exo5_top
+# -- Compiling architecture rtl of exo5_top
+# -- Loading package NUMERIC_STD
+# -- Loading entity mae_go_20ms
+# -- Loading entity compteur_en
+# End time: 10:07:57 on Dec 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl
+vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_exo5.vhdl
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:58:42 on Dec 16,2025
-# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_mae.vhdl 
+# Start time: 10:08:11 on Dec 16,2025
+# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_exo5.vhdl 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity TB_mae
-# -- Compiling architecture behav of TB_mae
-# End time: 08:58:42 on Dec 16,2025, Elapsed time: 0:00:00
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TB_exo5
+# -- Compiling architecture behav of TB_exo5
+# -- Loading entity exo5_top
+# End time: 10:08:11 on Dec 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim -gui -l msim_transcript work.tb_mae
-# vsim -gui -l msim_transcript work.tb_mae 
-# Start time: 08:58:51 on Dec 16,2025
+vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_exo5.vhdl
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:08:12 on Dec 16,2025
+# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/simulation/modelsim/TB_exo5.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity TB_exo5
+# -- Compiling architecture behav of TB_exo5
+# -- Loading entity exo5_top
+# End time: 10:08:13 on Dec 16,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim -gui -l msim_transcript work.tb_exo5
+# vsim -gui -l msim_transcript work.tb_exo5 
+# Start time: 10:08:22 on Dec 16,2025
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.tb_mae(behav)
-# Loading work.mae(rtl)
-add wave -position insertpoint sim:/tb_mae/*
+# Loading ieee.numeric_std(body)
+# Loading work.tb_exo5(behav)
+# Loading work.exo5_top(rtl)
+# Loading work.mae_go_20ms(rtl)
+# Loading work.compteur_en(rtl)
+add wave -position insertpoint sim:/tb_exo5/*
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: dbibi  Hostname: OUSSAMA  ProcessID: 41688
-#           Attempting to use alternate WLF file "./wlftnex6c9".
+#           Attempting to use alternate WLF file "./wlftzvdczb".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftnex6c9
-add wave -position insertpoint sim:/tb_mae/uut/*
+#           Using alternate file: ./wlftzvdczb
 run
-# ** Note: Simulation OK : MAE conforme (transitions, maintien, reset)
-#    Time: 270 ns  Iteration: 1  Instance: /tb_mae
-run
-run
-run
-run
-# End time: 09:35:02 on Dec 16,2025, Elapsed time: 0:36:11
-# Errors: 0, Warnings: 2
+# ** Note: Simulation OK : anti-rebond 20ms + 1 increment par appui VALIDES
+#    Time: 384000400 ns  Iteration: 0  Instance: /tb_exo5
