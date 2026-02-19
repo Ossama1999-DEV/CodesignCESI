@@ -8,9 +8,10 @@ use IEEE.numeric_std.all;
 
 entity unsaved is
 	port (
-		boutons_external_connection_export : in  std_logic_vector(1 downto 0) := (others => '0'); -- boutons_external_connection.export
-		clk_clk                            : in  std_logic                    := '0';             --                         clk.clk
-		leds_external_connection_export    : out std_logic_vector(7 downto 0)                     --    leds_external_connection.export
+		boutons_external_connection_export    : in  std_logic_vector(1 downto 0) := (others => '0'); -- boutons_external_connection.export
+		clk_clk                               : in  std_logic                    := '0';             --                         clk.clk
+		leds_external_connection_export       : out std_logic_vector(7 downto 0);                    --    leds_external_connection.export
+		pwm_out_test_new_writeresponsevalid_n : out std_logic                                        --            pwm_out_test_new.writeresponsevalid_n
 	);
 end entity unsaved;
 
@@ -109,10 +110,24 @@ architecture rtl of unsaved is
 		);
 	end component unsaved_onchip_memory2_0;
 
+	component avalon_pwm is
+		port (
+			clk        : in  std_logic                     := 'X';             -- clk
+			chipselect : in  std_logic                     := 'X';             -- chipselect
+			write_n    : in  std_logic                     := 'X';             -- write_n
+			writedata  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			readdata   : out std_logic_vector(31 downto 0);                    -- readdata
+			address    : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			reset_n    : in  std_logic                     := 'X';             -- reset_n
+			out_pwm    : out std_logic                                         -- writeresponsevalid_n
+		);
+	end component avalon_pwm;
+
 	component unsaved_mm_interconnect_0 is
 		port (
 			clk_0_clk_clk                                  : in  std_logic                     := 'X';             -- clk
 			nios2_gen2_0_reset_reset_bridge_in_reset_reset : in  std_logic                     := 'X';             -- reset
+			pwm_0_reset_reset_bridge_in_reset_reset        : in  std_logic                     := 'X';             -- reset
 			nios2_gen2_0_data_master_address               : in  std_logic_vector(16 downto 0) := (others => 'X'); -- address
 			nios2_gen2_0_data_master_waitrequest           : out std_logic;                                        -- waitrequest
 			nios2_gen2_0_data_master_byteenable            : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
@@ -154,6 +169,11 @@ architecture rtl of unsaved is
 			onchip_memory2_0_s1_byteenable                 : out std_logic_vector(3 downto 0);                     -- byteenable
 			onchip_memory2_0_s1_chipselect                 : out std_logic;                                        -- chipselect
 			onchip_memory2_0_s1_clken                      : out std_logic;                                        -- clken
+			pwm_0_avalon_slave_0_address                   : out std_logic_vector(1 downto 0);                     -- address
+			pwm_0_avalon_slave_0_write                     : out std_logic;                                        -- write
+			pwm_0_avalon_slave_0_readdata                  : in  std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			pwm_0_avalon_slave_0_writedata                 : out std_logic_vector(31 downto 0);                    -- writedata
+			pwm_0_avalon_slave_0_chipselect                : out std_logic;                                        -- chipselect
 			SYSID_control_slave_address                    : out std_logic_vector(0 downto 0);                     -- address
 			SYSID_control_slave_readdata                   : in  std_logic_vector(31 downto 0) := (others => 'X')  -- readdata
 		);
@@ -234,7 +254,7 @@ architecture rtl of unsaved is
 		);
 	end component altera_reset_controller;
 
-	signal nios2_gen2_0_debug_reset_request_reset                     : std_logic;                     -- nios2_gen2_0:debug_reset_request -> [rst_controller:reset_in0, rst_controller:reset_in1]
+	signal nios2_gen2_0_debug_reset_request_reset                     : std_logic;                     -- nios2_gen2_0:debug_reset_request -> [mm_interconnect_0:pwm_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0_debug_reset_request_reset:in, rst_controller:reset_in0, rst_controller:reset_in1]
 	signal nios2_gen2_0_data_master_readdata                          : std_logic_vector(31 downto 0); -- mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	signal nios2_gen2_0_data_master_waitrequest                       : std_logic;                     -- mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	signal nios2_gen2_0_data_master_debugaccess                       : std_logic;                     -- nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -254,6 +274,11 @@ architecture rtl of unsaved is
 	signal mm_interconnect_0_jtag_avalon_jtag_slave_read              : std_logic;                     -- mm_interconnect_0:JTAG_avalon_jtag_slave_read -> mm_interconnect_0_jtag_avalon_jtag_slave_read:in
 	signal mm_interconnect_0_jtag_avalon_jtag_slave_write             : std_logic;                     -- mm_interconnect_0:JTAG_avalon_jtag_slave_write -> mm_interconnect_0_jtag_avalon_jtag_slave_write:in
 	signal mm_interconnect_0_jtag_avalon_jtag_slave_writedata         : std_logic_vector(31 downto 0); -- mm_interconnect_0:JTAG_avalon_jtag_slave_writedata -> JTAG:av_writedata
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_chipselect          : std_logic;                     -- mm_interconnect_0:pwm_0_avalon_slave_0_chipselect -> pwm_0:chipselect
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_readdata            : std_logic_vector(31 downto 0); -- pwm_0:readdata -> mm_interconnect_0:pwm_0_avalon_slave_0_readdata
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_address             : std_logic_vector(1 downto 0);  -- mm_interconnect_0:pwm_0_avalon_slave_0_address -> pwm_0:address
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_write               : std_logic;                     -- mm_interconnect_0:pwm_0_avalon_slave_0_write -> mm_interconnect_0_pwm_0_avalon_slave_0_write:in
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_writedata           : std_logic_vector(31 downto 0); -- mm_interconnect_0:pwm_0_avalon_slave_0_writedata -> pwm_0:writedata
 	signal mm_interconnect_0_sysid_control_slave_readdata             : std_logic_vector(31 downto 0); -- SYSID:readdata -> mm_interconnect_0:SYSID_control_slave_readdata
 	signal mm_interconnect_0_sysid_control_slave_address              : std_logic_vector(0 downto 0);  -- mm_interconnect_0:SYSID_control_slave_address -> SYSID:address
 	signal mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata    : std_logic_vector(31 downto 0); -- nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
@@ -282,8 +307,10 @@ architecture rtl of unsaved is
 	signal nios2_gen2_0_irq_irq                                       : std_logic_vector(31 downto 0); -- irq_mapper:sender_irq -> nios2_gen2_0:irq
 	signal rst_controller_reset_out_reset                             : std_logic;                     -- rst_controller:reset_out -> [irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, onchip_memory2_0:reset, rst_controller_reset_out_reset:in, rst_translator:in_reset]
 	signal rst_controller_reset_out_reset_req                         : std_logic;                     -- rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
+	signal nios2_gen2_0_debug_reset_request_reset_ports_inv           : std_logic;                     -- nios2_gen2_0_debug_reset_request_reset:inv -> pwm_0:reset_n
 	signal mm_interconnect_0_jtag_avalon_jtag_slave_read_ports_inv    : std_logic;                     -- mm_interconnect_0_jtag_avalon_jtag_slave_read:inv -> JTAG:av_read_n
 	signal mm_interconnect_0_jtag_avalon_jtag_slave_write_ports_inv   : std_logic;                     -- mm_interconnect_0_jtag_avalon_jtag_slave_write:inv -> JTAG:av_write_n
+	signal mm_interconnect_0_pwm_0_avalon_slave_0_write_ports_inv     : std_logic;                     -- mm_interconnect_0_pwm_0_avalon_slave_0_write:inv -> pwm_0:write_n
 	signal mm_interconnect_0_leds_s1_write_ports_inv                  : std_logic;                     -- mm_interconnect_0_leds_s1_write:inv -> LEDS:write_n
 	signal rst_controller_reset_out_reset_ports_inv                   : std_logic;                     -- rst_controller_reset_out_reset:inv -> [BOUTONS:reset_n, JTAG:rst_n, LEDS:reset_n, SYSID:reset_n, nios2_gen2_0:reset_n]
 
@@ -377,10 +404,23 @@ begin
 			freeze     => '0'                                               -- (terminated)
 		);
 
+	pwm_0 : component avalon_pwm
+		port map (
+			clk        => clk_clk,                                                --          clock.clk
+			chipselect => mm_interconnect_0_pwm_0_avalon_slave_0_chipselect,      -- avalon_slave_0.chipselect
+			write_n    => mm_interconnect_0_pwm_0_avalon_slave_0_write_ports_inv, --               .write_n
+			writedata  => mm_interconnect_0_pwm_0_avalon_slave_0_writedata,       --               .writedata
+			readdata   => mm_interconnect_0_pwm_0_avalon_slave_0_readdata,        --               .readdata
+			address    => mm_interconnect_0_pwm_0_avalon_slave_0_address,         --               .address
+			reset_n    => nios2_gen2_0_debug_reset_request_reset_ports_inv,       --          reset.reset_n
+			out_pwm    => pwm_out_test_new_writeresponsevalid_n                   --    conduit_end.writeresponsevalid_n
+		);
+
 	mm_interconnect_0 : component unsaved_mm_interconnect_0
 		port map (
 			clk_0_clk_clk                                  => clk_clk,                                                    --                                clk_0_clk.clk
 			nios2_gen2_0_reset_reset_bridge_in_reset_reset => rst_controller_reset_out_reset,                             -- nios2_gen2_0_reset_reset_bridge_in_reset.reset
+			pwm_0_reset_reset_bridge_in_reset_reset        => nios2_gen2_0_debug_reset_request_reset,                     --        pwm_0_reset_reset_bridge_in_reset.reset
 			nios2_gen2_0_data_master_address               => nios2_gen2_0_data_master_address,                           --                 nios2_gen2_0_data_master.address
 			nios2_gen2_0_data_master_waitrequest           => nios2_gen2_0_data_master_waitrequest,                       --                                         .waitrequest
 			nios2_gen2_0_data_master_byteenable            => nios2_gen2_0_data_master_byteenable,                        --                                         .byteenable
@@ -422,6 +462,11 @@ begin
 			onchip_memory2_0_s1_byteenable                 => mm_interconnect_0_onchip_memory2_0_s1_byteenable,           --                                         .byteenable
 			onchip_memory2_0_s1_chipselect                 => mm_interconnect_0_onchip_memory2_0_s1_chipselect,           --                                         .chipselect
 			onchip_memory2_0_s1_clken                      => mm_interconnect_0_onchip_memory2_0_s1_clken,                --                                         .clken
+			pwm_0_avalon_slave_0_address                   => mm_interconnect_0_pwm_0_avalon_slave_0_address,             --                     pwm_0_avalon_slave_0.address
+			pwm_0_avalon_slave_0_write                     => mm_interconnect_0_pwm_0_avalon_slave_0_write,               --                                         .write
+			pwm_0_avalon_slave_0_readdata                  => mm_interconnect_0_pwm_0_avalon_slave_0_readdata,            --                                         .readdata
+			pwm_0_avalon_slave_0_writedata                 => mm_interconnect_0_pwm_0_avalon_slave_0_writedata,           --                                         .writedata
+			pwm_0_avalon_slave_0_chipselect                => mm_interconnect_0_pwm_0_avalon_slave_0_chipselect,          --                                         .chipselect
 			SYSID_control_slave_address                    => mm_interconnect_0_sysid_control_slave_address,              --                      SYSID_control_slave.address
 			SYSID_control_slave_readdata                   => mm_interconnect_0_sysid_control_slave_readdata              --                                         .readdata
 		);
@@ -499,9 +544,13 @@ begin
 			reset_req_in15 => '0'                                     -- (terminated)
 		);
 
+	nios2_gen2_0_debug_reset_request_reset_ports_inv <= not nios2_gen2_0_debug_reset_request_reset;
+
 	mm_interconnect_0_jtag_avalon_jtag_slave_read_ports_inv <= not mm_interconnect_0_jtag_avalon_jtag_slave_read;
 
 	mm_interconnect_0_jtag_avalon_jtag_slave_write_ports_inv <= not mm_interconnect_0_jtag_avalon_jtag_slave_write;
+
+	mm_interconnect_0_pwm_0_avalon_slave_0_write_ports_inv <= not mm_interconnect_0_pwm_0_avalon_slave_0_write;
 
 	mm_interconnect_0_leds_s1_write_ports_inv <= not mm_interconnect_0_leds_s1_write;
 

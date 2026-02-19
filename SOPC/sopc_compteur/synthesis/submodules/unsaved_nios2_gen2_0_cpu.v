@@ -1,4 +1,4 @@
-//Legal Notice: (C)2025 Altera Corporation. All rights reserved.  Your
+//Legal Notice: (C)2026 Altera Corporation. All rights reserved.  Your
 //use of Altera Corporation's design tools, logic functions and other
 //software and tools, and its AMPP partner logic functions, and any
 //output files any of the foregoing (including device programming or
@@ -3863,7 +3863,7 @@ reg              wait_for_one_post_bret_inst;
     2'b11;
 
   assign F_pc_no_crst_nxt = (F_pc_sel_nxt == 2'b00)? 8200 :
-    (F_pc_sel_nxt == 2'b01)? 16392 :
+    (F_pc_sel_nxt == 2'b01)? 16904 :
     (F_pc_sel_nxt == 2'b10)? E_arith_result[16 : 2] :
     F_pc_plus_one;
 

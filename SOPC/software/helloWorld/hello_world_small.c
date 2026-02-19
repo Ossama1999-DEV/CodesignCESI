@@ -8,11 +8,16 @@
 #define LEDS_BASE_ADDR    LEDS_BASE
 #define BTN_BASE_ADDR     BOUTONS_BASE
 
+/* ====== PWM (mémoire mappée) ====== */
+#define freq    (*(volatile unsigned int *)(PWM_0_BASE))
+#define duty    (*(volatile unsigned int *)(PWM_0_BASE + 4))
+#define control (*(volatile unsigned int *)(PWM_0_BASE + 8))
+
+/* ====== Fonctions PIO ====== */
 static inline uint32_t read_buttons(void)
 {
-    // Beaucoup de cartes : boutons actifs bas -> on inverse
-    // Si chez toi c'est actif haut, remplace par : return IORD_ALTERA_AVALON_PIO_DATA(BTN_BASE_ADDR) & 0xF;
-    return (~IORD_ALTERA_AVALON_PIO_DATA(BTN_BASE_ADDR)) & 0xF; // 4 boutons
+    // Boutons actifs bas (le plus courant)
+    return (~IORD_ALTERA_AVALON_PIO_DATA(BTN_BASE_ADDR)) & 0xF;
 }
 
 static inline void write_leds(uint32_t v)
@@ -22,24 +27,53 @@ static inline void write_leds(uint32_t v)
 
 int main(void)
 {
-    alt_putstr("Chenillard LEDs - Nios II OK\n");
+    alt_putstr("PWM + LEDs + Boutons - OK\n");
 
-    uint32_t leds = 0x01;      // LED0 allum�e au d�but
-    uint32_t last_btn = 0;
-    uint32_t mode = 0;         // 0=chenillard, 1=pingpong
-    uint32_t running = 1;
-    int dir = 1;               // direction pingpong
-    const useconds_t step_us = 150000; // vitesse (150 ms)
+    /* ====== Configuration PWM ====== */
+    freq = 0x0400;     // Division horloge par 1024
+    duty = 0x0200;     // 50%
+    control = 0x03;    // Enable + Start
 
+    uint32_t leds = 0x01;
     write_leds(leds);
 
-    while (1) {
-      write_leds(0xAA);
-      usleep(300000);
-      write_leds(0x55);
-      usleep(300000);
-    }
+    while (1)
+    {
+        uint32_t btn = read_buttons();
 
+        /* BTN0 → 25% */
+        if (btn & 0x1)
+        {
+            duty = freq / 4;
+        }
+
+        /* BTN1 → 50% */
+        if (btn & 0x2)
+        {
+            duty = freq / 2;
+        }
+
+        /* BTN2 → 75% */
+        if (btn & 0x4)
+        {
+            duty = (freq * 3) / 4;
+        }
+
+        /* BTN3 → changer fréquence */
+        if (btn & 0x8)
+        {
+            freq = 0x0800;     // plus lent
+            duty = freq / 2;
+        }
+
+        /* Petit effet LED */
+        write_leds(leds);
+        leds <<= 1;
+        if (leds == 0)
+            leds = 0x01;
+
+        usleep(150000);
+    }
 
     return 0;
 }

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'unsaved'
  * SOPC Builder design path: ../../unsaved.sopcinfo
  *
- * Generated: Tue Dec 16 15:57:44 CET 2025
+ * Generated: Thu Feb 19 16:52:30 CET 2026
  */
 
 /*
@@ -61,7 +61,7 @@
  */
 
 #define ALT_MODULE_CLASS_BOUTONS altera_avalon_pio
-#define BOUTONS_BASE 0x10830
+#define BOUTONS_BASE 0x11050
 #define BOUTONS_BIT_CLEARING_EDGE_REGISTER 0
 #define BOUTONS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define BOUTONS_CAPTURE 0
@@ -89,7 +89,7 @@
 
 #define ALT_CPU_ARCHITECTURE "altera_nios2_gen2"
 #define ALT_CPU_BIG_ENDIAN 0
-#define ALT_CPU_BREAK_ADDR 0x00010020
+#define ALT_CPU_BREAK_ADDR 0x00010820
 #define ALT_CPU_CPU_ARCH_NIOS2_R1
 #define ALT_CPU_CPU_FREQ 50000000u
 #define ALT_CPU_CPU_ID_SIZE 1
@@ -126,7 +126,7 @@
  */
 
 #define NIOS2_BIG_ENDIAN 0
-#define NIOS2_BREAK_ADDR 0x00010020
+#define NIOS2_BREAK_ADDR 0x00010820
 #define NIOS2_CPU_ARCH_NIOS2_R1
 #define NIOS2_CPU_FREQ 50000000u
 #define NIOS2_CPU_ID_SIZE 1
@@ -165,6 +165,7 @@
 #define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_NIOS2_GEN2
+#define __PWM
 
 
 /*
@@ -173,7 +174,7 @@
  */
 
 #define ALT_MODULE_CLASS_JTAG altera_avalon_jtag_uart
-#define JTAG_BASE 0x10858
+#define JTAG_BASE 0x11078
 #define JTAG_IRQ 0
 #define JTAG_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_NAME "/dev/JTAG"
@@ -191,7 +192,7 @@
  */
 
 #define ALT_MODULE_CLASS_LEDS altera_avalon_pio
-#define LEDS_BASE 0x10820
+#define LEDS_BASE 0x11040
 #define LEDS_BIT_CLEARING_EDGE_REGISTER 0
 #define LEDS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define LEDS_CAPTURE 0
@@ -218,13 +219,13 @@
  */
 
 #define ALT_MODULE_CLASS_SYSID altera_avalon_sysid_qsys
-#define SYSID_BASE 0x10850
+#define SYSID_BASE 0x11070
 #define SYSID_ID 0
 #define SYSID_IRQ -1
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/SYSID"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1765895596
+#define SYSID_TIMESTAMP 1771515699
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -244,19 +245,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/JTAG"
-#define ALT_STDERR_BASE 0x10858
+#define ALT_STDERR_BASE 0x11078
 #define ALT_STDERR_DEV JTAG
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/JTAG"
-#define ALT_STDIN_BASE 0x10858
+#define ALT_STDIN_BASE 0x11078
 #define ALT_STDIN_DEV JTAG
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/JTAG"
-#define ALT_STDOUT_BASE 0x10858
+#define ALT_STDOUT_BASE 0x11078
 #define ALT_STDOUT_DEV JTAG
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -302,5 +303,19 @@
 #define ONCHIP_MEMORY2_0_SPAN 20480
 #define ONCHIP_MEMORY2_0_TYPE "altera_avalon_onchip_memory2"
 #define ONCHIP_MEMORY2_0_WRITABLE 1
+
+
+/*
+ * pwm_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_pwm_0 pwm
+#define PWM_0_BASE 0x11030
+#define PWM_0_IRQ -1
+#define PWM_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define PWM_0_NAME "/dev/pwm_0"
+#define PWM_0_SPAN 16
+#define PWM_0_TYPE "pwm"
 
 #endif /* __SYSTEM_H_ */
