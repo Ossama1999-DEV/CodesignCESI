@@ -187,6 +187,21 @@ lien : https://chief-violin-c20.notion.site/TP-VHDL-Codesign-2025-45ad154132b341
 
 PWM -> VALIDE [OK]
 
+ajoute photo tel
+
+---
+## Spécifications circuit acquisition vitesse vent
+![alt text](priseEnMain/doc/anemometre.JPG)
+
+**Top Level**
+![alt text](priseEnMain/doc/topLevelAnemo.png)
+photo tel
+
+**MAE**
+<!-- ![alt text](priseEnMain/doc/maePouranemometre.png) -->
+
+![alt text](priseEnMain/doc/mae_anomemtre.png)
+
 ---
 
 ## 📁 Outils utilisés
