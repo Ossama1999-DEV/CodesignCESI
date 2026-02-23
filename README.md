@@ -202,6 +202,10 @@ photo tel
 
 ![alt text](priseEnMain/doc/mae_anomemtre.png)
 
+![alt text](priseEnMain/doc/mae1.png)
+![alt text](priseEnMain/doc/mae2.png)
+
+
 ---
 
 ## 📁 Outils utilisés
