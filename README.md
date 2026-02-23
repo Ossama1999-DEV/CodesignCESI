@@ -173,15 +173,19 @@ Réaliser le SOPC sopc_compteur, test expérimental sur carte DE0 Nano.
     4) Création du logiciel dans l’environnement NIOS2IDE, téléchargement dans le FPGA et débogage.
 
 **Partie 2 : Développement logiciel**
+*Hello world et PWM*
 
-VALIDE [OK]
+hello world -> VALIDE [OK]
 
 ---
 
 ## Partie 3 : 
+lien : https://chief-violin-c20.notion.site/TP-VHDL-Codesign-2025-45ad154132b3417b96d6bfab48f48d36
+
 **Intégration d’un composant propriétaire**
 ![alt text](priseEnMain/doc/pwm.webp)
 
+PWM -> VALIDE [OK]
 
 ---
 
