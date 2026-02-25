@@ -6,7 +6,7 @@
 db/
 incremental_db/
 output_files/
-simulation/
+# simulation/
 
 # SOPC / Qsys
 SOPC/db/
