@@ -1,9 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity TB_anemometre is
-end entity;
-
+entity TB_anemometre is end;
 architecture tb of TB_anemometre is
 
   signal clk_50M : std_logic := '0';
@@ -15,21 +13,22 @@ architecture tb of TB_anemometre is
 
   signal data_valid      : std_logic;
   signal data_anemometre : std_logic_vector(7 downto 0);
-  signal etat_dbg        : std_logic_vector(2 downto 0);
+  signal etat_dbg        : std_logic_vector(1 downto 0);
 
-  constant CLK_PERIOD : time := 20 ns; -- 50 MHz
+  constant CLK_PERIOD : time := 20 ns;
 
   signal gen_hz : integer := 0;
 
 begin
-
+  -- DUT
   dut: entity work.anemometre
     generic map (
-      WINDOW_TICKS => 500_000  -- 10ms
+      CLK_HZ   => 50_000_000,
+      WINDOW_S => 1
     )
     port map (
       clk_50M => clk_50M,
-      raz_n   => raz_n,
+      raz_n => raz_n,
       in_freq_anemometre => in_freq_anemometre,
       continu => continu,
       start_stop => start_stop,
@@ -38,10 +37,11 @@ begin
       etat_dbg => etat_dbg
     );
 
+  -- clock
   clk_50M <= not clk_50M after CLK_PERIOD/2;
 
-  -- générateur fréquence
-  freq_gen: process
+  -- freq generator
+  process
     variable halfp : time;
   begin
     wait for 1 ms;
@@ -57,8 +57,8 @@ begin
     end loop;
   end process;
 
-  -- scénario : continu puis monocoup puis continu
-  stim: process
+  -- scenario
+  process
   begin
     -- reset
     raz_n <= '0';
@@ -67,32 +67,20 @@ begin
     gen_hz <= 0;
     wait for 200 ns;
     raz_n <= '1';
-    wait for 2 ms;
-
-    -- 1) CONTINU : data_anemometre doit MONTER (compteur live)
-    gen_hz <= 500;
-    continu <= '1';
-    wait for 30 ms;     -- plusieurs fenêtres, et surtout live_cnt bouge
-
-    -- 2) Stop continu
-    continu <= '0';
-    wait for 5 ms;
-
-    -- 3) MONOCOUP : on lance start_stop => à la fin data_valid=1 et data figée
-    gen_hz <= 300;
-    start_stop <= '1';
-    wait for 15 ms;     -- 10ms + marge
-    -- garde start_stop un peu pour voir HOLD
     wait for 10 ms;
+
+    -- MONOCOUP 10 Hz  -> data_anemometre doit devenir 10 après 1s
+    gen_hz <= 10;
+    start_stop <= '1';
+    wait for 1.2 sec;
     start_stop <= '0';
-    wait for 5 ms;
+    wait for 200 ms;
 
-    -- 4) Re-CONTINU avec autre freq (re-montera)
-    gen_hz <= 800;
-    continu <= '1';
-    wait for 30 ms;
-
-    continu <= '0';
+    -- MONOCOUP 200 Hz -> data_anemometre doit devenir 200 après 1s
+    gen_hz <= 200;
+    start_stop <= '1';
+    wait for 1.2 sec;
+    start_stop <= '0';
     wait;
 
   end process;

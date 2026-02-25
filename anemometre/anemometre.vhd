@@ -4,8 +4,10 @@ use ieee.numeric_std.all;
 
 entity anemometre is
   generic (
-    WINDOW_TICKS : natural := 500_000  -- par défaut 10ms @ 50MHz (pour simu rapide)
+    CLK_HZ    : natural := 50_000_000;
+    WINDOW_S  : natural := 1
   );
+  constant TICKS_PER_WINDOW : natural := CLK_HZ * WINDOW_S;
   port (
     clk_50M            : in  std_logic;
     raz_n              : in  std_logic;
@@ -55,9 +57,10 @@ begin
   -- sortie data_anemometre :
   -- - en continu : on montre le compteur live (ça bouge)
   -- - en monocoup : on montre la valeur figée (latched)
-	with continu select
-	  data_anemometre <= std_logic_vector(sat8(live_cnt))    when '1',
-								std_logic_vector(sat8(latched_cnt)) when others;
+	-- with continu select
+	--   data_anemometre <= std_logic_vector(sat8(live_cnt))    when '1',
+	-- 							std_logic_vector(sat8(latched_cnt)) when others;
+  data_anemometre <= std_logic_vector(sat8(latched_cnt));
 
   with state select
     etat_dbg <= "000" when S_IDLE,
@@ -136,7 +139,7 @@ begin
           when S_COUNT =>
             -- ✅ live compteur visible en continu
             if pulse='1' then
-              live_cnt <= live_cnt + 1;
+              live_cnt <= data_anemometre <= std_logic_vector(sat8(latched_cnt)); + 1;
             end if;
 
             if tick_end='1' then
@@ -145,7 +148,7 @@ begin
 
           when S_LATCH =>
             -- ✅ on fige le résultat de la fenêtre
-            latched_cnt <= live_cnt;
+            latched_cnt <= data_anemometre <= std_logic_vector(sat8(latched_cnt));;
             state <= S_VALID_HOLD;
 
           when S_VALID_HOLD =>
