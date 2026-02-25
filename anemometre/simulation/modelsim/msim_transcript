@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 09:32:09 on Feb 25,2026
+# Start time: 11:26:08 on Feb 25,2026
 # vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -20,12 +20,12 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity anemometre
 # -- Compiling architecture rtl of anemometre
-# End time: 09:32:09 on Feb 25,2026, Elapsed time: 0:00:00
+# End time: 11:26:08 on Feb 25,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 09:32:23 on Feb 25,2026
+# Start time: 11:26:17 on Feb 25,2026
 # vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -33,24 +33,24 @@ vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/Cod
 # -- Loading package NUMERIC_STD
 # -- Compiling entity anemometre
 # -- Compiling architecture rtl of anemometre
-# End time: 09:32:23 on Feb 25,2026, Elapsed time: 0:00:00
+# End time: 11:26:17 on Feb 25,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 09:32:26 on Feb 25,2026
+# Start time: 11:26:22 on Feb 25,2026
 # vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
 # -- Compiling entity TB_anemometre
 # -- Compiling architecture tb of TB_anemometre
+# -- Loading package NUMERIC_STD
 # -- Loading entity anemometre
-# End time: 09:32:27 on Feb 25,2026, Elapsed time: 0:00:01
+# End time: 11:26:22 on Feb 25,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim -gui -l msim_transcript work.tb_anemometre
 # vsim -gui -l msim_transcript work.tb_anemometre 
-# Start time: 09:32:33 on Feb 25,2026
+# Start time: 11:26:29 on Feb 25,2026
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -58,22 +58,4 @@ vsim -gui -l msim_transcript work.tb_anemometre
 # Loading work.tb_anemometre(tb)
 # Loading work.anemometre(rtl)
 add wave -position insertpoint sim:/tb_anemometre/*
-add wave sim:/tb_anemometre/*
-add wave -position insertpoint sim:/tb_anemometre/*
-add wave -position insertpoint  \
-sim:/tb_anemometre/dut/write_n \
-sim:/tb_anemometre/dut/valid_reg \
-sim:/tb_anemometre/dut/state \
-sim:/tb_anemometre/dut/start_stop \
-sim:/tb_anemometre/dut/reset_n \
-sim:/tb_anemometre/dut/raz_n \
-sim:/tb_anemometre/dut/etat_dbg \
-sim:/tb_anemometre/dut/data_valid \
-sim:/tb_anemometre/dut/data_anemometre \
-sim:/tb_anemometre/dut/continu \
-sim:/tb_anemometre/dut/clk
 run
-# ** Note: === TB START ===
-#    Time: 0 ps  Iteration: 0  Instance: /tb_anemometre
-# ** Error: FAIL: expected data=20
-#    Time: 2404000410 ns  Iteration: 0  Instance: /tb_anemometre
