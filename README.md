@@ -1,191 +1,206 @@
-# Codesign – CESI
+# Codesign - CESI
 
-## 🔗 Lien vers le support Notion
+## Lien vers le support Notion
 https://chief-violin-c20.notion.site/TP-VHDL-Codesign-2026-2be3b9c822568011b904e0d58f24585e
 
 ---
 
-## ✅ Prise en main de Quartus 18
-✔ Terminée
+## Prise en main de Quartus 18
+Statut: terminee.
 
 ---
 
-## 🟦 Exercice 1 – Compteur 0 → 15
+## Exercice 1 - Compteur 0 -> 15
 
-**Objectif :**  
-Écrire en VHDL un compteur 4 bits allant de **0 à 15**, puis réaliser sa simulation.
+**Objectif**  
+Ecrire en VHDL un compteur 4 bits allant de **0 a 15**, puis realiser sa simulation.
 
-**Livrables :**
-- Code VHDL du compteur  
-- Testbench de simulation  
+**Livrables**
+- Code VHDL du compteur
+- Testbench de simulation
 
-✔ Exercice réalisé et validé
+Statut: exercice realise et valide.
 
 ---
 
-## 🟩 Exercice 2 – Compteur 0 → 9 + test sur DE0-Nano
+## Exercice 2 - Compteur 0 -> 9 + test sur DE0-Nano
 
-**Objectif :**  
-Modifier le compteur précédent pour qu'il compte de **0 à 9**.
+**Objectif**  
+Modifier le compteur precedent pour qu'il compte de **0 a 9**.
 
-### 🔧 Modification principale
+### Modification principale
 
-Avant (0 → 15) :
+Avant (0 -> 15):
 ```vhdl
 if count = "1111" then   -- 15
     count <= (others => '0');
 ```
-Après (0 → 9) :
+
+Apres (0 -> 9):
 ```vhdl
 if count = "1001" then   -- 9
     count <= (others => '0');
 ```
 
-### 💡 Remarque (DE0-Nano)
+### Remarque (DE0-Nano)
 
 La carte DE0-Nano utilise une horloge **clk_50MHz**, trop rapide pour observer le comptage sur les LEDs.  
-Un ralentissement de l’horloge sera nécessaire pour un affichage visible.
+Un ralentissement de l'horloge est necessaire pour obtenir un affichage visible.
 
-✔ Même testbench utilisé pour les compteurs 0–15 et 0–9  
-✔ Simulation validée avant test expérimental
-
----
-
-## 🟥 Exercice 3 – Compteur synchrone 0 → 9 avec période de 1 seconde
-
-**Objectif :**  
-Réaliser un compteur synchrone **0 → 9** avec un incrément toutes les **1 seconde**.
-
-### 🛠 Solution
-
-Ajout d’un **diviseur d’horloge** :
-- Entrée : 50 MHz  
-- Sortie : 1 Hz  
-
-Le compteur est alors piloté par cette horloge lente.
-
-✔ Compteur fonctionnel  
-✔ Simulation possible  
-✔ Prêt pour implémentation sur la carte DE0-Nano
-
-dout_tb passe de 0 → 1 → 2
-
-avec un changement toutes les ~1000 ms (1 seconde):
-
-    ✔ donc le temps de comptage est bien de 1 s
-
-    ✔ le compteur est synchrone
-
-    ✔ l’objectif de l’exercice est atteint
-
-Un diviseur d’horloge a été ajouté afin de transformer l’horloge de la carte 50 MHz en une horloge lente de 1 Hz.
-Le compteur 0 à 9 est piloté par cette horloge divisée, ce qui permet une incrémentation toutes les 1 seconde.
-La simulation sous ModelSim montre que la sortie évolue de 0 à 9 avec un pas temporel de 1 s, validant le bon fonctionnement du compteur.
-
-![alt text](priseEnMain/doc/shema_pushBotton.JPG)
+Validation:
+- Meme testbench utilise pour les compteurs 0-15 et 0-9.
+- Simulation validee avant test experimental.
 
 ---
 
-## exo 4
-![alt text](priseEnMain/doc/image.png)
-![alt text](priseEnMain/doc/mae_simulation_prof.png)
-Le testbench vérifie le bon fonctionnement de la machine à états en testant le reset, les transitions entre etat1 et etat2, ainsi que le maintien dans un état lorsque l’entrée ne correspond pas à une transition valide.
-Il valide également la priorité du reset, y compris lorsqu’il est appliqué pendant un changement d’état, et confirme **que la sortie out1 dépend uniquement de l’état présent (machine de Moore).**
+## Exercice 3 - Compteur synchrone 0 -> 9 avec periode de 1 seconde
 
-Dans ton TB, tu as :
+**Objectif**  
+Realiser un compteur synchrone **0 -> 9** avec une incrementation toutes les **1 seconde**.
+
+### Solution
+
+Ajout d'un **diviseur d'horloge**:
+- Entree: 50 MHz
+- Sortie: 1 Hz
+
+Le compteur est pilote par cette horloge lente.
+
+Validation:
+- Compteur fonctionnel.
+- Simulation possible.
+- Pret pour implementation sur la carte DE0-Nano.
+
+Observation de simulation:
+- `dout_tb` passe de 0 -> 1 -> 2.
+- Le changement se fait toutes les ~1000 ms (1 seconde).
+
+Conclusion:
+- Le temps de comptage est bien de 1 s.
+- Le compteur est synchrone.
+- L'objectif de l'exercice est atteint.
+
+Un diviseur d'horloge a ete ajoute afin de transformer l'horloge de la carte (50 MHz) en une horloge lente de 1 Hz.  
+Le compteur 0 a 9 est pilote par cette horloge divisee, ce qui permet une incrementation toutes les 1 seconde.  
+La simulation sous ModelSim montre que la sortie evolue de 0 a 9 avec un pas temporel de 1 s, validant le bon fonctionnement du compteur.
+
+![Schema push button](priseEnMain/doc/shema_pushBotton.JPG)
+
+---
+
+## Exercice 4
+
+![Exercice 4 - Schema](priseEnMain/doc/image.png)
+![Exercice 4 - Simulation](priseEnMain/doc/mae_simulation_prof.png)
+
+Le testbench verifie le bon fonctionnement de la machine a etats en testant:
+- le reset,
+- les transitions entre `etat1` et `etat2`,
+- le maintien dans un etat lorsque l'entree ne correspond pas a une transition valide.
+
+Il valide egalement la priorite du reset, y compris lorsqu'il est applique pendant un changement d'etat, et confirme **que la sortie `out1` depend uniquement de l'etat present (machine de Moore)**.
+
+Dans le testbench:
+```vhdl
 constant clk_period : time := 20 ns;
-et :
-    ck_tb <= '0'; wait for clk_period/2;
-    ck_tb <= '1'; wait for clk_period/2;
 
-    ➡️ Période = 20 ns
-    ➡️ Fréquence = 1 / 20 ns = 50 MHz
+ck_tb <= '0'; wait for clk_period/2;
+ck_tb <= '1'; wait for clk_period/2;
+```
 
-![alt text](priseEnMain/doc/mae_verif_prof.JPG)
+Donc:
+- Periode = 20 ns
+- Frequence = 1 / 20 ns = 50 MHz
 
----
-
-## Exercice 5 : 
-Programmer, simuler et tester le compteur asynchrone suivant :
-
-![alt text](priseEnMain/doc/exo5_enonce.webp)
-
-**Cahier des charges :**
-OK ✅ Exo5 = 1 incrémentation par appui sur go, avec anti-rebond 20 ms (clk = 50 MHz).
-Le Compteur doit être incrémenté chaque fois que le bouton **go** est activé (afin d’éviter les rebonds du bouton le temps d’appui minimum est de 20ms)
-
-Rmque : Une incrémentation par appui
-
-l'idee:
-une MAE détecte l’appui
-un timer 20 ms valide que le bouton est bien stable
-la MAE génère une impulsion go_compte d’un seul cycle d’horloge
-le compteur incrémente uniquement sur cette impulsion
-➡️ donc une incrémentation par appui, même si tu gardes le bouton appuyé.
-
-**Ce que tu dois observer (validation Exo5)**
-
-Si tu appuies une fois sur go (même longtemps) → dout fait +1 une seule fois
-Les rebonds (impulsions rapides < 20ms) → ignorés
-Si tu veux, je te fais aussi un testbench Exo5 où je simule des rebonds (go qui “tremble” pendant 5ms puis se stabilise) pour prouver que ça n’incrémente qu’une fois.
-
-
-On vas coder 3 file:
-compteur_en : Compteur 4 bits incrémenté par impulsion (enable)
-mae_go_20ms: MAE + Timer 20 ms + impulsion go_compte
-exo5: TOP : MAE + Compteur
-
-![alt text](priseEnMain/doc/exo5_avant_sim.JPG)
-
-👉 C’est quoi idle ?
-
-idle = état d’attente / repos
-
-**pour 20 ms**
-![alt text](priseEnMain/doc/exo5_affiche_20ms.JPG)
+![Exercice 4 - Verification](priseEnMain/doc/mae_verif_prof.JPG)
 
 ---
 
-## Exercice 6 : 
-Réaliser le SOPC sopc_compteur, test expérimental sur carte DE0 Nano.
+## Exercice 5
+
+Programmer, simuler et tester le compteur asynchrone suivant:
+
+![Exercice 5 - Enonce](priseEnMain/doc/exo5_enonce.webp)
+
+**Cahier des charges**
+
+Exo5 valide: 1 incrementation par appui sur `go`, avec anti-rebond 20 ms (`clk = 50 MHz`).  
+Le compteur doit etre incremente chaque fois que le bouton **go** est active.  
+Pour eviter les rebonds du bouton, le temps d'appui minimum valide est de 20 ms.
+
+Remarque: une incrementation par appui.
+
+Principe:
+- Une MAE detecte l'appui.
+- Un timer 20 ms valide que le bouton est bien stable.
+- La MAE genere une impulsion `go_compte` d'un seul cycle d'horloge.
+- Le compteur incremente uniquement sur cette impulsion.
+
+Conclusion: une seule incrementation par appui, meme si le bouton reste appuye.
+
+**Ce qu'il faut observer (validation Exo5)**
+- Si on appuie une fois sur `go` (meme longtemps), `dout` fait +1 une seule fois.
+- Les rebonds (impulsions rapides < 20 ms) sont ignores.
+
+Fichiers a coder:
+- `compteur_en`: compteur 4 bits incremente par impulsion (enable)
+- `mae_go_20ms`: MAE + timer 20 ms + impulsion `go_compte`
+- `exo5`: top MAE + compteur
+
+![Exercice 5 - Avant simulation](priseEnMain/doc/exo5_avant_sim.JPG)
+
+`idle` = etat d'attente / repos.
+
+**Pour 20 ms**
+
+![Exercice 5 - Affichage 20 ms](priseEnMain/doc/exo5_affiche_20ms.JPG)
+
+---
+
+## Exercice 6
+
+Realiser le SOPC `sopc_compteur`, puis effectuer un test experimental sur carte DE0-Nano.
+
 **Conception des SOC/SOPC (Platform Designer)**
 
-- **Utilisation de Platform Designer pour la conception de SOPC (System On Programmable Chip)SOPC**
-    
-    Développement matériel HARD         Développement logiciel SOFT
-    
-    Q18 + Plateform Designer                   NIOS II (processeur softcore)
-    
-    (Q11 + SOPC Builder)
-    
-    **Platform Designer** permet, entre autres, de concevoir des microcontrôleurs spécifiques à une application. Ces microcontrôleurs comportent donc une partie processeur (softcore NIOS II) à laquelle on associe des périphériques (PIO, Timers, UART, USB, composants propriétaires, ...) et de la mémoire. Cette dernière peut être embarquée dans le FPGA (on parle alors de RAM/ROM On Chip) ou à l’extérieur du composant FPGA.
-    
-    La partie microprocesseur proprement dite est le softcore NIOS II de INTEL, processeur de 32 bits qui se décline en trois versions : économique, standard, rapide. La version économique, la moins puissante, utilise le moins de ressources du FPGA. Bien sûr il est possible d’intégrer d’autres types de processeurs pour peu qu’on dispose de leurs modèles (VHDL, Verilog, ...).
-    
-- La création d’une application SOPC comprend les étapes suivantes :
-    
-    1) Création du composant matériel (processeur + périphériques) dans l’environnement Quartus II.
-    
-    2) Eventuellement simulation avec l’outil Modelsim.
-    
-    3) Téléchargement dans le composant FPGA (configuration) (environnement Quartus II).
-    
-    4) Création du logiciel dans l’environnement NIOS2IDE, téléchargement dans le FPGA et débogage.
+**Utilisation de Platform Designer pour la conception de SOPC (System On Programmable Chip)**
 
-**Partie 2 : Développement logiciel**
+Developpement materiel (HARD) / developpement logiciel (SOFT):
+- Q18 + Platform Designer
+- NIOS II (processeur softcore)
+- (Q11 + SOPC Builder)
 
-VALIDE [OK]
+**Platform Designer** permet de concevoir des microcontroleurs specifiques a une application.  
+Ces microcontroleurs comportent une partie processeur (softcore NIOS II), des peripheriques (PIO, timers, UART, USB, composants proprietaires, etc.) et de la memoire.  
+La memoire peut etre embarquee dans le FPGA (RAM/ROM on chip) ou externe.
+
+La partie microprocesseur est le softcore NIOS II d'Intel, processeur 32 bits declinable en trois versions: economique, standard, rapide.  
+La version economique utilise le moins de ressources FPGA. Il est egalement possible d'integrer d'autres types de processeurs si leurs modeles sont disponibles (VHDL, Verilog, etc.).
+
+La creation d'une application SOPC comprend les etapes suivantes:
+1. Creation du composant materiel (processeur + peripheriques) dans l'environnement Quartus II.
+2. Simulation eventuelle avec l'outil ModelSim.
+3. Telechargement dans le composant FPGA (configuration) via Quartus II.
+4. Creation du logiciel dans l'environnement NIOS2IDE, telechargement dans le FPGA et debogage.
+
+**Partie 2: Developpement logiciel**  
+Statut: VALIDE [OK].
 
 ---
 
-## Partie 3 : 
-**Intégration d’un composant propriétaire**
-![alt text](priseEnMain/doc/pwm.webp)
+## Partie 3
 
+**Integration d'un composant proprietaire**
+
+![Partie 3 - PWM](priseEnMain/doc/pwm.webp)
 
 ---
 
-## 📁 Outils utilisés
+## Outils utilises
 - Quartus Prime 18
 - ModelSim
 - Carte FPGA DE0-Nano
+
+
+## Auteur
+DBIBIH Oussama
