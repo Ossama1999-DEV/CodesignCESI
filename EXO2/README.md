@@ -35,9 +35,6 @@ Un ralentissement de l'horloge est necessaire pour obtenir un affichage visible.
 
 ![alt text](../doc/compteur_de_0_a_9.JPG)
 
-Pour 1 secondes :
-![alt text](../doc/compteur_0_a_9_1s.png)
-
 Validation:
 
 - Meme testbench utilise pour les compteurs 0-15 et 0-9.
