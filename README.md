@@ -165,6 +165,7 @@ Realiser le SOPC `sopc_compteur`, puis effectuer un test experimental sur carte 
 
 **Utilisation de Platform Designer pour la conception de SOPC (System On Programmable Chip)**
 
+<<<<<<< HEAD
 Developpement materiel (HARD) / developpement logiciel (SOFT):
 - Q18 + Platform Designer
 - NIOS II (processeur softcore)
@@ -193,6 +194,41 @@ Statut: VALIDE [OK].
 **Integration d'un composant proprietaire**
 
 ![Partie 3 - PWM](priseEnMain/doc/pwm.webp)
+=======
+**Partie 2 : Développement logiciel**
+*Hello world et PWM*
+
+hello world -> VALIDE [OK]
+
+---
+
+## Partie 3 : 
+lien : https://chief-violin-c20.notion.site/TP-VHDL-Codesign-2025-45ad154132b3417b96d6bfab48f48d36
+
+**Intégration d’un composant propriétaire**
+![alt text](priseEnMain/doc/pwm.webp)
+
+PWM -> VALIDE [OK]
+
+ajoute photo tel
+
+---
+## Spécifications circuit acquisition vitesse vent
+![alt text](priseEnMain/doc/anemometre.JPG)
+
+**Top Level**
+![alt text](priseEnMain/doc/topLevelAnemo.png)
+photo tel
+
+**MAE**
+<!-- ![alt text](priseEnMain/doc/maePouranemometre.png) -->
+
+![alt text](priseEnMain/doc/mae_anomemtre.png)
+
+![alt text](priseEnMain/doc/mae1.png)
+![alt text](priseEnMain/doc/mae2.png)
+
+>>>>>>> refs/remotes/origin/main
 
 ---
 

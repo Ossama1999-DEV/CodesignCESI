@@ -1,0 +1,52 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do anemometre_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:40 on Feb 25,2026
+# vcom -reportprogress 300 -93 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity anemometre
+# -- Compiling architecture rtl of anemometre
+# End time: 11:53:40 on Feb 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:51 on Feb 25,2026
+# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/anemometre.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity anemometre
+# -- Compiling architecture rtl of anemometre
+# End time: 11:53:51 on Feb 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:53:56 on Feb 25,2026
+# vcom -reportprogress 300 -work work C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TB_anemometre
+# -- Compiling architecture tb of TB_anemometre
+# -- Loading package NUMERIC_STD
+# -- Loading entity anemometre
+# ** Error (suppressible): C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd(37): (vcom-1272) Length of formal "etat_dbg" is 3; length of actual is 2.
+# ** Error: C:/Users/Etudiant/Desktop/DBIBIH_OUSSAMA/CodesignCESI/anemometre/simulation/modelsim/TB_anemometre.vhd(88): VHDL Compiler exiting
+# End time: 11:53:56 on Feb 25,2026, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
