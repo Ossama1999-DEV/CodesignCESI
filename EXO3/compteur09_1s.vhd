@@ -1,5 +1,7 @@
--- Compteur 0 à 9 avec période d’incrémentation = 1 seconde
--- Horloge d'entrée = 50 MHz (DE0-Nano)
+---! Compteur 4 bits de 0 à 9 avec division d'horloge
+---! Ce compteur s'incremente de 1 a chaque seconde (division d'horloge) et se remet a zero lorsque 'rst' est actif (rst = 1).
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
 
 library ieee;
 use ieee.std_logic_1164.all;

@@ -1,3 +1,10 @@
+---! Machine à états Moore
+---! Cette machine à états a deux états : etat1 et etat2.
+---! La transition etat1 → etat2 est déclenchée par une impulsion sur in1, et la transition etat2 → etat1 est déclenchée par une impulsion sur in2.
+---! La sortie out1 est '0' en etat1 et '1' en etat2.
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
+
 library ieee;
 use ieee.std_logic_1164.all;
 

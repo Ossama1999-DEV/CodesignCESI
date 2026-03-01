@@ -1,6 +1,10 @@
 -- 1. génère une horloge de 50 MHz et un reset pour piloter le compteur.
 -- 2. instancie le composant compteur et observe sa sortie dout_tb.
 -- 3. laisse tourner la simulation pour vérifier que le compteur compte de 0 à 15 puis revient à 0.
+---! Testbench pour le compteur 4 bits
+---! Ce testbench génère une horloge de 50 MHz et un signal de reset
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
 
 library ieee;
 use ieee.std_logic_1164.all;

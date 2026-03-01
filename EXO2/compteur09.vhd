@@ -1,4 +1,7 @@
--- compteur 0 a 9
+---! Compteur 4 bits de 0 à 9
+---! Ce compteur s'incremente de 1 a chaque impulsion sur 'clk' et se remet a zero lorsque 'rst' est actif (rst = 1). 
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
 
 library ieee;
 use ieee.std_logic_1164.all;

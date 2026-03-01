@@ -1,3 +1,8 @@
+---! MAE anti-rebond 20 ms
+---! Cette machine à états détecte un appui stable sur le bouton "go" pendant au moins 20 ms (pour filtrer les rebonds) et génère une impulsion validee de 1 cycle (go_compte) à chaque appui stable. 
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

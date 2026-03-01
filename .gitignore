@@ -1,29 +1,29 @@
-# ===== Quartus / Platform Designer =====
-*.qsf
-*.qpf
+# # ===== Quartus / Platform Designer =====
+# *.qsf
+# *.qpf
 
-# Dossiers générés (JAMAIS versionnés)
-db/
-incremental_db/
-output_files/
-# simulation/
+# # Dossiers générés (JAMAIS versionnés)
+# db/
+# incremental_db/
+# output_files/
+# # simulation/
 
-# SOPC / Qsys
-SOPC/db/
-SOPC/incremental_db/
-SOPC/output_files/
-SOPC/.qsys_edit/
-SOPC/*.sopcinfo
-SOPC/*.qip
-SOPC/**/*.flock
-SOPC/**/*.rdr.*
+# # SOPC / Qsys
+# SOPC/db/
+# SOPC/incremental_db/
+# SOPC/output_files/
+# SOPC/.qsys_edit/
+# SOPC/*.sopcinfo
+# SOPC/*.qip
+# SOPC/**/*.flock
+# SOPC/**/*.rdr.*
 
-# Fichiers temporaires Quartus
-*.db_info
-*.metadata
-*.bak
-*.tmp
+# # Fichiers temporaires Quartus
+# *.db_info
+# *.metadata
+# *.bak
+# *.tmp
 
-# OS
-Thumbs.db
-.DS_Store
+# # OS
+# Thumbs.db
+# .DS_Store

@@ -1,3 +1,10 @@
+/**!
+ * \file hello_world_small.c
+ * \brief Programme de test pour les LEDs et les boutons
+ * \author DBIBIH Oussama
+ * \date 2026-02-20
+ */
+
 #include "sys/alt_stdio.h"
 #include <stdio.h>
 #include "system.h"
@@ -31,7 +38,7 @@ int main()
     *duty = 0x0200;   // 50%
     *control = 3;     // enable PWM
 
-    write_leds(0x2);   // 0001 -> LED0 ON
+    write_leds(0x2);   // LED ON
 
     while(1)
     {

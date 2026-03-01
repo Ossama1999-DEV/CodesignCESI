@@ -1,3 +1,8 @@
+---! Compteur 4 bits
+---! Ce compteur s'incremente de 1 a chaque impulsion sur l'horloge 'clk' et se remet a zero lorsque 'rst' est actif (rst = 1).
+---! Autor: DBIBIH Oussama
+---! Date: 2026/12
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

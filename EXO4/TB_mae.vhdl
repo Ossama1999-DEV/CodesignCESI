@@ -1,3 +1,8 @@
+---! Testbench pour la machine à états Moore
+---! Ce testbench génère une horloge de 50 MHz, un signal de reset, et des impulsions sur in1 et in2 pour tester les transitions d'état de la machine à états Moore définie dans mae.vhd.
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
+
 library ieee;
 use ieee.std_logic_1164.all;
 
