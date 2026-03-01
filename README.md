@@ -230,6 +230,7 @@ photo tel
 
 >>>>>>> refs/remotes/origin/main
 
+
 ---
 
 ## Outils utilises
