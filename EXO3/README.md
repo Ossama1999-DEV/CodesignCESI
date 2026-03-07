@@ -46,9 +46,6 @@ TB figure :
 
 ![alt text](../doc/compteur_0_a_9_1s.png)
 
-Avec reset :
-![alt text](../doc/Compteur_avec_reset.JPG)
-
 compteur 0 a 9 pour 1secondes part 2:
 ![alt text](../doc/compteur0a9pour1secondespart2.png)
 

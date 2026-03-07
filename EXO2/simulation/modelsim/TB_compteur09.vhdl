@@ -1,6 +1,7 @@
--- 1. génère une horloge de 50 MHz et un reset pour piloter le compteur.
--- 2. instancie le composant compteur09 et observe sa sortie dout_tb.
--- 3. laisse tourner la simulation pour vérifier que le compteur compte de 0 à 9 puis revient à 0.
+---! Testbench pour le compteur 0 à 9
+---! Ce testbench génère une horloge de 50 MHz et un signal de reset
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -17,7 +18,7 @@ architecture behav of TB_compteur09 is
     signal dout_tb : std_logic_vector(3 downto 0);
 
     -- instanciation du compteur 0→9
-    component compteur09_1s
+    component compteur09
         port (
             clk  : in  std_logic;
             rst  : in  std_logic;
@@ -27,7 +28,7 @@ architecture behav of TB_compteur09 is
 
 begin
 
-    uut: compteur09_1s
+    uut: compteur09
         port map (
             clk  => clk_tb,
             rst  => rst_tb,

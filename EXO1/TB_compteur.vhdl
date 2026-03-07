@@ -33,9 +33,9 @@ architecture behav of TB_compteur is
 
 begin
 
-    -- uut: compteur
+    uut: compteur
     -- uut: compteur09
-    uut: compteur09_1s
+    -- uut: compteur09_1s
         port map (
             clk  => clk_tb,
             rst  => rst_tb,

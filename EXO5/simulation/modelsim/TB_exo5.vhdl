@@ -1,3 +1,11 @@
+---! Testbench pour le top Exo5 : anti-rebond + génération d'impulsion + compteur 4 bits
+---! Ce testbench génère une horloge de 50 MHz, un signal de reset, et des impulsions sur le bouton "go" pour 
+---! tester l'intégration de la MAE anti-rebond de 20 ms et du compteur 4 bits dans le top Exo5. 
+---! Il vérifie que les rebonds rapides ne génèrent pas d'incrémentation, que les appuis stables génèrent une incrémentation valide, 
+---! et que le compteur se remet à zéro avec le reset.
+---! Autor: DBIBIH Oussama
+---! Date: 2025/12
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

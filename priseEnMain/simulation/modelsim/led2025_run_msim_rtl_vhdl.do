@@ -5,5 +5,5 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -93 -work work {//wsl.localhost/Debian/home/oussama/repo/CodesignCESI/priseEnMain/TimerLed.vhd}
+vcom -93 -work work {C:/Users/PC/Desktop/CESI/CodesignCESI/priseEnMain/TimerLed.vhd}
 

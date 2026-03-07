@@ -1,88 +1,112 @@
-library ieee;
-use ieee.std_logic_1164.all;
+--- Testbench pour l'anémomètre
+-- Génère une horloge accélérée et un signal de capteur à 100 Hz
+-- Permet de vérifier le fonctionnement du DUT sur une fenêtre de mesure complète
+-- auteur : DBIBIH Oussama
 
-entity TB_anemometre is end;
-architecture tb of TB_anemometre is
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
-  signal clk_50M : std_logic := '0';
-  signal raz_n   : std_logic := '0';
+entity TB_anemometre is
+end TB_anemometre;
 
-  signal in_freq_anemometre : std_logic := '0';
-  signal continu    : std_logic := '0';
-  signal start_stop : std_logic := '0';
+architecture behav of TB_anemometre is
 
-  signal data_valid      : std_logic;
-  signal data_anemometre : std_logic_vector(7 downto 0);
-  signal etat_dbg        : std_logic_vector(1 downto 0);
+    -- =========================================================
+    -- Horloge accélérée pour simulation
+    -- 20 ns => 50 MHz
+    -- La fenêtre "1 seconde" du DUT devient :
+    -- 50_000_000 * 20 ns = 1 s
+    -- =========================================================
+    constant clk_period : time := 20 ns;
 
-  constant CLK_PERIOD : time := 20 ns;
+    -- Signal capteur anémomètre : 100 Hz
+    -- T = 10 ms
+    constant anemo_period : time := 10 ms;
 
-  signal gen_hz : integer := 0;
+    signal clk_50M            : std_logic := '0';
+    signal raz_n              : std_logic := '0';
+    signal in_freq_anemometre : std_logic := '0';
+    signal continu            : std_logic := '0';
+    signal start_stop         : std_logic := '0';
+    signal data_anemometre    : std_logic_vector(7 downto 0);
+    signal data_valid         : std_logic;
+    signal compteur_out       : std_logic_vector(7 downto 0);
+    signal state_out          : std_logic_vector(1 downto 0);
 
 begin
-  -- DUT
-  dut: entity work.anemometre
-    generic map (
-      CLK_HZ   => 50_000_000,
-      WINDOW_S => 1
-    )
-    port map (
-      clk_50M => clk_50M,
-      raz_n => raz_n,
-      in_freq_anemometre => in_freq_anemometre,
-      continu => continu,
-      start_stop => start_stop,
-      data_valid => data_valid,
-      data_anemometre => data_anemometre,
-      etat_dbg => etat_dbg
-    );
 
-  -- clock
-  clk_50M <= not clk_50M after CLK_PERIOD/2;
+    -- =========================================================
+    -- Instanciation du DUT
+    -- =========================================================
+    uut : entity work.anemometre
+        port map (
+            clk_50M            => clk_50M,
+            raz_n              => raz_n,
+            in_freq_anemometre => in_freq_anemometre,
+            continu            => continu,
+            start_stop         => start_stop,
+            data_anemometre    => data_anemometre,
+            data_valid         => data_valid,
+            compteur_out       => compteur_out,
+            state_out          => state_out
+        );
 
-  -- freq generator
-  process
-    variable halfp : time;
-  begin
-    wait for 1 ms;
-    loop
-      if gen_hz <= 0 then
-        in_freq_anemometre <= '0';
-        wait for 1 ms;
-      else
-        halfp := (1 sec / gen_hz) / 2;
-        in_freq_anemometre <= '1'; wait for halfp;
-        in_freq_anemometre <= '0'; wait for halfp;
-      end if;
-    end loop;
-  end process;
+    -- =========================================================
+    -- Horloge système accélérée
+    -- =========================================================
+    clk_process : process
+    begin
+        while true loop
+            clk_50M <= '0';
+            wait for clk_period / 2;
+            clk_50M <= '1';
+            wait for clk_period / 2;
+        end loop;
+    end process;
 
-  -- scenario
-  process
-  begin
-    -- reset
-    raz_n <= '0';
-    continu <= '0';
-    start_stop <= '0';
-    gen_hz <= 0;
-    wait for 200 ns;
-    raz_n <= '1';
-    wait for 10 ms;
+    -- =========================================================
+    -- Génération du signal anémomètre
+    -- 100 Hz => période 10 ms
+    -- =========================================================
+    anemo_process : process
+    begin
+        wait for 20 ms;
+        while true loop
+            in_freq_anemometre <= '1';
+            wait for anemo_period / 2;
+            in_freq_anemometre <= '0';
+            wait for anemo_period / 2;
+        end loop;
+    end process;
 
-    -- MONOCOUP 10 Hz  -> data_anemometre doit devenir 10 après 1s
-    gen_hz <= 10;
-    start_stop <= '1';
-    wait for 1.2 sec;
-    start_stop <= '0';
-    wait for 200 ms;
+    -- =========================================================
+    -- Stimuli
+    -- =========================================================
+    stim_proc : process
+    begin
+        -- Reset initial
+        raz_n <= '0';
+        continu <= '0';
+        start_stop <= '0';
+        wait for 1 us;
 
-    -- MONOCOUP 200 Hz -> data_anemometre doit devenir 200 après 1s
-    gen_hz <= 200;
-    start_stop <= '1';
-    wait for 1.2 sec;
-    start_stop <= '0';
-    wait;
+        -- Fin reset
+        raz_n <= '1';
+        wait for 5 us;
 
-  end process;
+        -- Démarrage en mode continu
+        continu <= '1';
 
-end architecture;
+        -- Laisser tourner assez longtemps pour voir
+        -- une fenêtre complète de mesure (~0,4 s)
+        wait for 1500 ms;
+
+        -- Arrêt
+        continu <= '0';
+        wait for 50 ms;
+
+        wait;
+    end process;
+
+end behav;

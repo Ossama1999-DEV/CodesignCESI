@@ -1,0 +1,121 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity avalon_anemometre is
+  port (
+    clk         : in  std_logic;
+    chipselect  : in  std_logic;
+    write_n     : in  std_logic;
+    reset_n     : in  std_logic;
+
+    writedata   : in  std_logic_vector(31 downto 0);
+    readdata    : out std_logic_vector(31 downto 0);
+    address     : in  std_logic_vector(1 downto 0);
+
+    -- Conduit vers la pin (GBF / anémomètre)
+    in_freq_anemometre : in std_logic
+
+    -- (optionnel) si tu veux aussi ressortir vers des pins :
+    -- data_valid_o      : out std_logic;
+    -- data_anemometre_o : out std_logic_vector(7 downto 0)
+  );
+end entity;
+
+architecture arch_avalon_anemometre of avalon_anemometre is
+
+  -- Registre de contrôle écrit par le CPU
+  signal control        : std_logic_vector(2 downto 0) := (others => '0');
+  signal continu_i      : std_logic := '0';
+  signal start_stop_i   : std_logic := '0';
+
+  -- Sorties du bloc anemometre
+  signal data_anem_i    : std_logic_vector(7 downto 0);
+  signal data_valid_i   : std_logic;
+
+  -- Latch de valid (pour ne pas rater un pulse)
+  signal valid_latched  : std_logic := '0';
+
+begin
+
+  ---------------------------------------------------------------------------
+  -- Instance de votre bloc anemometre
+  ---------------------------------------------------------------------------
+  u_anem : entity work.anemometre
+    port map (
+      clk_50M            => clk,
+      raz_n              => reset_n,              -- même polarité : actif bas
+      in_freq_anemometre => in_freq_anemometre,
+      continu            => continu_i,
+      start_stop         => start_stop_i,
+      data_anemometre    => data_anem_i,
+      data_valid         => data_valid_i,
+      compteur_out       => open,
+      state_out          => open
+    );
+
+  ---------------------------------------------------------------------------
+  -- Écriture registres Avalon + latch valid
+  ---------------------------------------------------------------------------
+  process(clk, reset_n)
+  begin
+    if reset_n = '0' then
+      control       <= (others => '0');
+      continu_i     <= '0';
+      start_stop_i  <= '0';
+      valid_latched <= '0';
+
+    elsif rising_edge(clk) then
+
+      -- Latch du valid (si une mesure est validée)
+      if data_valid_i = '1' then
+        valid_latched <= '1';
+      end if;
+
+      -- Écriture CPU
+      if (chipselect = '1') and (write_n = '0') then
+        if address = "10" then
+          control <= writedata(2 downto 0);
+
+          -- commandes vers le bloc
+          continu_i    <= writedata(0);
+          start_stop_i <= writedata(1);
+
+          -- clear valid_latched (bit2)
+          if writedata(2) = '1' then
+            valid_latched <= '0';
+          end if;
+        end if;
+      end if;
+
+    end if;
+  end process;
+
+  ---------------------------------------------------------------------------
+  -- Lecture registres Avalon (comme votre PWM)
+  ---------------------------------------------------------------------------
+  process(address, data_anem_i, valid_latched, control)
+  begin
+    case address is
+      when "00" =>
+        readdata <= (others => '0');
+        readdata(7 downto 0) <= data_anem_i;
+
+      when "01" =>
+        readdata <= (others => '0');
+        readdata(0) <= valid_latched;
+
+      when "10" =>
+        readdata <= (others => '0');
+        readdata(2 downto 0) <= control;
+
+      when others =>
+        readdata <= (others => '0');
+    end case;
+  end process;
+
+  -- (optionnel) sorties vers pins
+  -- data_valid_o      <= valid_latched;
+  -- data_anemometre_o <= data_anem_i;
+
+end architecture;

@@ -1,0 +1,8 @@
+|mae
+ck => ep.CLK
+rst => ep.ACLR
+in1 => es.DATAB
+in2 => es.DATAA
+out1 <= ep.DB_MAX_OUTPUT_PORT_TYPE
+
+

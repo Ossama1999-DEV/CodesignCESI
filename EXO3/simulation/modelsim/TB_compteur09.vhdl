@@ -1,6 +1,6 @@
 -- 1. génère une horloge de 50 MHz et un reset pour piloter le compteur.
--- 2. instancie le composant compteur09 et observe sa sortie dout_tb.
--- 3. laisse tourner la simulation pour vérifier que le compteur compte de 0 à 9 puis revient à 0.
+-- 2. instancie le composant compteur et observe sa sortie dout_tb.
+-- 3. laisse tourner la simulation pour vérifier que le compteur compte de 0 à 15 puis revient à 0.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -16,7 +16,6 @@ architecture behav of TB_compteur09 is
     signal rst_tb  : std_logic := '1';
     signal dout_tb : std_logic_vector(3 downto 0);
 
-    -- instanciation du compteur 0→9
     component compteur09_1s
         port (
             clk  : in  std_logic;
@@ -45,24 +44,24 @@ begin
         end loop;
     end process;
 
-    -- séquence de reset (rst = 1 puis rst = 0) + observation du comptage
+    -- séquence de reset pour tester rst = 1 et rst = 0
     stim_proc : process
     begin
         -- reset initial
         rst_tb <= '1';
         wait for 2 * clk_period;
 
-        -- relâche le reset : le compteur compte 0→9→0...
+        -- on relâche le reset : le compteur commence à compter
         rst_tb <= '0';
-        wait for 25 * clk_period;  -- assez pour voir plusieurs incréments
+        wait for 10 * clk_period;
 
-        -- reset pendant l’exécution : retour à 0
+        -- on remet le reset à 1 : retour à 0
         rst_tb <= '1';
         wait for 3 * clk_period;
 
-        -- relâche à nouveau : il repart de 0
+        -- on enlève à nouveau le reset : le compteur repart de 0
         rst_tb <= '0';
-        wait for 25 * clk_period;
+        wait for 20 * clk_period;
 
         wait;  -- stop simulation
     end process;

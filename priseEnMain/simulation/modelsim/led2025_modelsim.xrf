@@ -1,11 +1,10 @@
 vendor_name = ModelSim
-source_file = 1, //wsl.localhost/Debian/home/oussama/repo/CodesignCESI/priseEnMain/TimerLed.vhd
+source_file = 1, C:/Users/PC/Desktop/CESI/CodesignCESI/priseEnMain/TimerLed.vhd
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/vhdl/ieee/timing_b.vhd
 source_file = 1, c:/intelfpga_lite/18.1/quartus/libraries/vhdl/ieee/timing_p.vhd
-source_file = 1, timerled.vhd
-source_file = 1, //wsl.localhost/Debian/home/oussama/repo/CodesignCESI/priseEnMain/db/led2025.cbx.xml
+source_file = 1, C:/Users/PC/Desktop/CESI/CodesignCESI/priseEnMain/db/led2025.cbx.xml
 design_name = hard_block
 design_name = TimerLed
 instance = comp, \led~output\, led~output, TimerLed, 1

@@ -1,0 +1,77 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "PWM_OUT",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "boutons[0]",
+					"strict" : false
+				},
+				{
+					"name" : "boutons[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ANEMO_IN",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,176 +1,228 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+---=========================================================
+-- Module : Anémomètre
+-- Objectif :
+-- Mesurer le nombre d'impulsions provenant d'un capteur
+-- d'anémomètre pendant une fenêtre de mesure de 1 seconde.
+-- auteur : DBIBIH Oussama
+-- Principe :
+-- 1. Compter les fronts montants du signal capteur.
+-- 2. Utiliser une fenêtre temporelle de 1 seconde.
+-- 3. Fournir la valeur mesurée et un signal de validation.
+--=========================================================
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity anemometre is
-  generic (
-    CLK_HZ   : natural := 50_000_000;
-    WINDOW_S : natural := 1
-  );
-  port (
-    clk_50M            : in  std_logic;
-    raz_n              : in  std_logic;  -- reset fonctionnel actif bas
-    in_freq_anemometre : in  std_logic;  -- asynchrone
+    Port (
+        clk_50M            : in  std_logic; -- horloge systeme 50 MHz
+        raz_n              : in  std_logic; -- reset asynchrone actif à 0
+        in_freq_anemometre : in  std_logic; -- signal capteur (freq vent)
+        continu            : in  std_logic; -- mode continu
+        start_stop         : in  std_logic; -- mode mesure unique
 
-    continu            : in  std_logic;  -- 1 = continu
-    start_stop         : in  std_logic;  -- 1 = start monocoup
-
-    data_valid         : out std_logic;
-    data_anemometre    : out std_logic_vector(7 downto 0);
-
-    -- debug : 000=IDLE 001=ARM 010=CLEAR 011=COUNT 100=LATCH 101=VALID
-    etat_dbg           : out std_logic_vector(2 downto 0)
-  );
+        data_anemometre    : out std_logic_vector(7 downto 0); -- resultat mesure
+        data_valid         : out std_logic;                    -- validation donnée
+        compteur_out       : out std_logic_vector(7 downto 0); -- debug compteur
+        state_out          : out std_logic_vector(1 downto 0)  -- debug état FSM
+    );
 end anemometre;
 
-architecture rtl of anemometre is
+architecture Behavioral of anemometre is
 
-  type state_t is (S_IDLE, S_ARM, S_CLEAR, S_COUNT, S_LATCH, S_VALID_HOLD);
-  signal state : state_t := S_IDLE;
+    -- =========================================================
+    -- Générateur de fenêtre temporelle 1 seconde
+    -- 50 MHz → 50 000 000 cycles = 1 seconde
+    -- =========================================================
+    signal div_cnt  : unsigned(25 downto 0) := (others => '0');
+    signal tick_1s  : std_logic := '0';
 
-  -- synchro + front montant
-  signal ff1, ff2, ff2_d : std_logic := '0';
-  signal pulse           : std_logic := '0';
+    -- =========================================================
+    -- Compteur d'impulsions provenant de l'anémomètre
+    -- largeur 8 bits → max 255 impulsions par seconde
+    -- =========================================================
+    signal pulse_cnt : unsigned(7 downto 0) := (others => '0');
 
-  -- fenêtre
-  constant WINDOW_TICKS : natural := CLK_HZ * WINDOW_S;
-  signal tick_cnt : unsigned(31 downto 0) := (others => '0');
-  signal tick_end : std_logic := '0';
+    -- =========================================================
+    -- Machine à états du système
+    -- IDLE    : attente démarrage
+    -- MEASURE : comptage des impulsions
+    -- VALID   : résultat disponible
+    -- =========================================================
+    type t_state is (IDLE, MEASURE, VALID);
+    signal state : t_state := IDLE;
 
-  -- compteurs
-  signal live_cnt    : unsigned(15 downto 0) := (others => '0');
-  signal latched_cnt : unsigned(15 downto 0) := (others => '0');
+    -- =========================================================
+    -- Synchronisation du signal capteur
+    -- Double bascule pour éviter les problèmes de métastabilité
+    -- =========================================================
+    signal anemo_ff0 : std_logic := '0';
+    signal anemo_ff1 : std_logic := '0';
 
-  signal data_valid_i : std_logic := '0';
-
-  function sat8(x : unsigned(15 downto 0)) return unsigned is
-  begin
-    if x > to_unsigned(255, 16) then
-      return to_unsigned(255, 8);
-    else
-      return resize(x, 8);
-    end if;
-  end function;
+    -- Détection du front montant
+    signal front     : std_logic := '0';
 
 begin
 
-  data_valid      <= data_valid_i;
-  -- ✅ on affiche la FREQUENCE mesurée (Hz) = valeur figée de la fenêtre
-  data_anemometre <= std_logic_vector(sat8(latched_cnt));
+    -- =========================================================
+    -- Génération du tick 1 seconde
+    -- Le compteur est actif uniquement pendant la mesure
+    -- =========================================================
+	process(clk_50M, raz_n)
+	begin
+	  if raz_n = '0' then
+		 div_cnt <= (others => '0');
+		 tick_1s <= '0';
 
-  -- debug état
-  with state select
-    etat_dbg <= "000" when S_IDLE,
-                "001" when S_ARM,
-                "010" when S_CLEAR,
-                "011" when S_COUNT,
-                "100" when S_LATCH,
-                "101" when others; -- S_VALID_HOLD
+	  elsif rising_edge(clk_50M) then
 
-  -- =========================
-  -- Synchronisation + edge detect
-  -- =========================
-  process(clk_50M)
-  begin
-    if rising_edge(clk_50M) then
-      if raz_n = '0' then
-        ff1 <= '0'; ff2 <= '0'; ff2_d <= '0'; pulse <= '0';
-      else
-        ff1   <= in_freq_anemometre;
-        ff2   <= ff1;
-        ff2_d <= ff2;
-        pulse <= ff2 and (not ff2_d);
-      end if;
-    end if;
-  end process;
+		 tick_1s <= '0';
 
-  -- =========================
-  -- Timer fenêtre (actif en COUNT)
-  -- =========================
-  process(clk_50M)
-  begin
-    if rising_edge(clk_50M) then
-      if raz_n = '0' then
-        tick_cnt <= (others => '0');
-        tick_end <= '0';
-      else
-        tick_end <= '0';
-        if state = S_COUNT then
-          if tick_cnt = to_unsigned(WINDOW_TICKS - 1, tick_cnt'length) then
-            tick_cnt <= (others => '0');
-            tick_end <= '1';
-          else
-            tick_cnt <= tick_cnt + 1;
-          end if;
-        else
-          tick_cnt <= (others => '0');
+		 -- Comptage actif uniquement en phase de mesure
+		 if state = MEASURE then
+
+			if div_cnt = to_unsigned(50_000_000 - 1, div_cnt'length) then
+			  div_cnt <= (others => '0');
+			  tick_1s <= '1';  -- fin de la fenêtre de mesure
+			else
+			  div_cnt <= div_cnt + 1;
+			end if;
+
+		 else
+			-- hors mesure on remet le compteur à zéro
+			div_cnt <= (others => '0');
+		 end if;
+
+	  end if;
+	end process;
+
+
+    -- =========================================================
+    -- Synchronisation du signal capteur
+    -- Permet d'éviter les problèmes de métastabilité
+    -- lors de l'entrée d'un signal asynchrone dans le FPGA
+    -- =========================================================
+	process(clk_50M, raz_n)
+	begin
+		 if raz_n = '0' then
+			  anemo_ff0 <= '0';
+			  anemo_ff1 <= '0';
+
+		 elsif rising_edge(clk_50M) then
+			  anemo_ff0 <= in_freq_anemometre;
+			  anemo_ff1 <= anemo_ff0;
+		 end if;
+
+	end process;
+
+
+    -- =========================================================
+    -- Détection du front montant du capteur
+    -- =========================================================
+    front <= anemo_ff0 and not anemo_ff1;
+
+
+    -- =========================================================
+    -- Machine à états principale
+    -- Gère le cycle de mesure
+    -- =========================================================
+    process(clk_50M, raz_n)
+    begin
+
+        if raz_n = '0' then
+            state <= IDLE;
+            pulse_cnt <= (others => '0');
+            data_anemometre <= (others => '0');
+            data_valid <= '0';
+
+        elsif rising_edge(clk_50M) then
+
+            case state is
+
+                -- ==============================
+                -- Etat attente
+                -- ==============================
+                when IDLE =>
+
+                    data_valid <= '0';
+                    pulse_cnt <= (others => '0');
+
+                    -- démarrage mesure
+                    if (continu = '1') or (start_stop = '1') then
+                        state <= MEASURE;
+                        pulse_cnt <= (others => '0');
+                    end if;
+
+
+                -- ==============================
+                -- Etat mesure
+                -- ==============================
+                when MEASURE =>
+
+                    data_valid <= '0';
+
+                    -- arrêt mesure si stop
+                    if (continu = '0') and (start_stop = '0') then
+                        state <= IDLE;
+
+                    else
+
+                        -- incrémentation sur chaque front capteur
+                        if front = '1' then
+                            if pulse_cnt /= to_unsigned(255, 8) then
+                                pulse_cnt <= pulse_cnt + 1;
+                            end if;
+                        end if;
+
+                        -- fin de la fenêtre de mesure
+                        if tick_1s = '1' then
+                            state <= VALID;
+                        end if;
+
+                    end if;
+
+
+                -- ==============================
+                -- Etat validation
+                -- ==============================
+                when VALID =>
+
+                    -- publication du résultat
+                    data_anemometre <= std_logic_vector(pulse_cnt);
+                    data_valid <= '1';
+
+                    -- mode continu → nouvelle mesure
+                    if continu = '1' then
+                        state <= MEASURE;
+                        pulse_cnt <= (others => '0');
+
+                    -- mode start/stop → attente stop
+                    else
+                        if start_stop = '0' then
+                            state <= IDLE;
+                            data_valid <= '0';
+                        end if;
+                    end if;
+
+            end case;
+
         end if;
-      end if;
-    end if;
-  end process;
 
-  -- =========================
-  -- MAE + comptage + latch
-  -- =========================
-  process(clk_50M)
-  begin
-    if rising_edge(clk_50M) then
-      if raz_n = '0' then
-        state        <= S_IDLE;
-        live_cnt     <= (others => '0');
-        latched_cnt  <= (others => '0');
-        data_valid_i <= '0';
+    end process;
 
-      else
-        case state is
 
-          when S_IDLE =>
-            data_valid_i <= '0';
-            live_cnt     <= (others => '0');
-            if (continu = '1') or (start_stop = '1') then
-              state <= S_ARM;
-            end if;
+    -- =========================================================
+    -- Sorties de debug
+    -- =========================================================
 
-          when S_ARM =>
-            -- petit état tampon (propre)
-            state <= S_CLEAR;
+    -- valeur actuelle du compteur d'impulsions
+    compteur_out <= std_logic_vector(pulse_cnt);
 
-          when S_CLEAR =>
-            data_valid_i <= '0';
-            live_cnt     <= (others => '0');
-            state        <= S_COUNT;
+    -- codage de l'état de la FSM pour observation externe
+    with state select
+        state_out <= "00" when IDLE,
+                     "01" when MEASURE,
+                     "10" when VALID,
+                     "00" when others;
 
-          when S_COUNT =>
-            if pulse = '1' then
-              live_cnt <= live_cnt + 1;
-            end if;
-
-            if tick_end = '1' then
-              state <= S_LATCH;
-            end if;
-
-          when S_LATCH =>
-            -- ✅ on fige le nombre d'impulsions mesurées sur la fenêtre
-            latched_cnt <= live_cnt;
-            state       <= S_VALID_HOLD;
-
-          when S_VALID_HOLD =>
-            data_valid_i <= '1';
-
-            if continu = '1' then
-              -- continu : nouvelle fenêtre
-              state <= S_CLEAR;
-            else
-              -- monocoup : on garde valid tant que start_stop=1
-              if start_stop = '0' then
-                data_valid_i <= '0';
-                state <= S_IDLE;
-              end if;
-            end if;
-
-        end case;
-      end if;
-    end if;
-  end process;
-
-end rtl;
+end Behavioral;

@@ -1,0 +1,7 @@
+
+State Machine - |exo5_top|mae_go_20ms:u_mae|ep
+Name ep.wait_release ep.pulse ep.debounce ep.idle 
+ep.idle 0 0 0 0 
+ep.debounce 0 0 1 1 
+ep.pulse 0 1 0 1 
+ep.wait_release 1 0 0 1 
