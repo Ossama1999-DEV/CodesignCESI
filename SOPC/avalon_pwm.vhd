@@ -1,3 +1,8 @@
+---=========================================================
+-- Module : PWM (Pulse Width Modulation)
+-- auteur : DBIBIH Oussama
+--==========================================================
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
