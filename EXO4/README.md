@@ -9,9 +9,9 @@
 
 ## Exercice 4
 
-Le testbench verifie le bon fonctionnement de la machine a etats en testant:
-
 ![Exercice 4 - Schema]( /doc/image.png)
+
+Le testbench verifie le bon fonctionnement de la machine a etats en testant:
 
 - le reset,
 - les transitions entre `etat1` et `etat2`,
